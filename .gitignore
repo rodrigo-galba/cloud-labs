@@ -1,2 +1,4 @@
 
 .vagrant/**
+eks-kube-config
+eks-kube-config.eksctl.lock
