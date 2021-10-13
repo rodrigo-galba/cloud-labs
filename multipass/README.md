@@ -9,6 +9,7 @@
 Launch an instance (by default you get the current Ubuntu LTS) named `cloudbox` with 4GB in RAM:  
 ```bash
 multipass launch -n cloudbox -m 4G
+multipass launch -n devbox -m 4G
 ```
 
 ## Run commands
