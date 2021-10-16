@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: This is my first bucket
 Resources:
-  MyBucket:
+  SimpleBucket:
     Type: AWS::S3::Bucket
