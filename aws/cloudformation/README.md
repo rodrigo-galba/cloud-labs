@@ -23,3 +23,8 @@ $ aws cloudformation describe-stacks --stack-name simpleBucket | jq '.Stacks[0].
 
 An error occurred (ValidationError) when calling the DescribeStacks operation: Stack with id simpleBucket does not exist
 ```
+
+To update a stack:  
+```bash
+$ aws cloudformation update-stack --stack-name simpleBucket --template-body file://simple_bucket.yml --region us-east-1
+```

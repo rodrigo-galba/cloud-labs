@@ -3,3 +3,6 @@ Description: This is my first bucket
 Resources:
   SimpleBucket:
     Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+
