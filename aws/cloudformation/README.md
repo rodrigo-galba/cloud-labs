@@ -94,3 +94,5 @@ aws cloudformation create-stack \
 $ ROLENAME=$(aws cloudformation describe-stack-resources --stack-name cfniamrole --query "StackResources[0].PhysicalResourceId" --output text)
 $ aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aws:policy/AdministratorAccess"
 ```
+
+4. Go to drift changes and see the difference.
