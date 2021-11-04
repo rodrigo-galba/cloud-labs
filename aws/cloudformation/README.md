@@ -26,7 +26,7 @@ An error occurred (ValidationError) when calling the DescribeStacks operation: S
 
 To update a stack:  
 ```bash
-$ aws cloudformation update-stack --stack-name simpleBucket --template-body file://simple_bucket.yml --region us-east-1
+aws cloudformation update-stack --stack-name simpleBucket --template-body file://simple_bucket.yml --region us-east-1
 ```
 
 ## IAM Role integration
@@ -75,4 +75,22 @@ aws cloudformation create-stack \
      --stack-name mybucket \
      --template-body file://simple_bucket.yml \
      --role-arn $IAM_ROLE_ARN
+```
+
+## Drift detection
+
+1. Create a stack:
+
+```shell
+aws cloudformation create-stack \
+                     --stack-name cfniamrole \
+                     --capabilities CAPABILITY_IAM \
+                     --template-body file://CfnIamRole.yaml
+```
+
+2. Go to the console and run drift detection on that stack manually
+3. Add an extra policy to the role and rerun drift detection:
+```shell
+$ ROLENAME=$(aws cloudformation describe-stack-resources --stack-name cfniamrole --query "StackResources[0].PhysicalResourceId" --output text)
+$ aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aws:policy/AdministratorAccess"
 ```
