@@ -28,3 +28,51 @@ To update a stack:
 ```bash
 $ aws cloudformation update-stack --stack-name simpleBucket --template-body file://simple_bucket.yml --region us-east-1
 ```
+
+## IAM Role integration
+
+```shell
+aws cloudformation create-stack \
+                     --stack-name iamrole \
+                     --capabilities CAPABILITY_IAM \
+                     --template-body file://MyIamRole.yaml
+IAM_ROLE_ARN=$(aws cloudformation describe-stacks \
+                                    --stack-name iamrole \
+--query "Stacks[0].Outputs[?OutputKey=='IamRole'].OutputValue" \
+--output text)
+aws sts assume-role --role-arn $IAM_ROLE_ARN \
+                      --role-session-name tmp
+# Here goes the output of the command. I will store the access credentials in the env vars
+#$ export AWS_ACCESS_KEY_ID=… 
+#$ export AWS_SECRET_ACCESS_KEY=…
+#$ export AWS_SESSION_TOKEN=…
+aws cloudformation create-stack \
+                     --stack-name mybucket \
+                     --template-body file://MyBucket.yaml
+```
+
+## IAM Service role
+
+1. Create a service role:
+```shell
+aws cloudformation create-stack \
+                     --stack-name cfniamrole \
+                     --capabilities CAPABILITY_IAM \
+                     --template-body file://CfnIamRole.yaml
+```
+
+2. Get created role ARN:
+```shell
+IAM_ROLE_ARN=$(aws cloudformation describe-stacks \
+                                    --stack-name cfniamrole \
+--query "Stacks[0].Outputs[?OutputKey=='IamRole'].OutputValue" \
+--output text)
+```
+
+3. Run stack creation using the Role ARN:
+```shell
+aws cloudformation create-stack \
+     --stack-name mybucket \
+     --template-body file://simple_bucket.yml \
+     --role-arn $IAM_ROLE_ARN
+```
