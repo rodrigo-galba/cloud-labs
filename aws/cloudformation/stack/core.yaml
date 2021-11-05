@@ -4,42 +4,6 @@ Parameters:
   VpcCidr:
     Type: String
     AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  PublicSubnetCidr1:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  PublicSubnetCidr2:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  PublicSubnetCidr3:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  WebTierSubnetCidr1:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  WebTierSubnetCidr2:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  WebTierSubnetCidr3:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  MiddlewareSubnetCidr1:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  MiddlewareSubnetCidr2:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  MiddlewareSubnetCidr3:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  DatabaseSubnetCidr1:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  DatabaseSubnetCidr2:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
-  DatabaseSubnetCidr3:
-    Type: String
-    AllowedPattern: '((\d{1,3})\.){3}\d{1,3}/\d{1,2}'
   Environment:
     Type: String
     AllowedValues: ['test', 'prod']
@@ -60,71 +24,71 @@ Resources:
   PublicSubnet1:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref PublicSubnetCidr1
+      CidrBlock: !Select [ 0, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   PublicSubnet2:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref PublicSubnetCidr2
+      CidrBlock: !Select [ 1, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   PublicSubnet3:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref PublicSubnetCidr3
+      CidrBlock: !Select [ 2, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   WebTierSubnet1:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref WebTierSubnetCidr1
+      CidrBlock: !Select [ 3, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   WebTierSubnet2:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref WebTierSubnetCidr2
+      CidrBlock: !Select [ 4, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   WebTierSubnet3:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref WebTierSubnetCidr3
+      CidrBlock: !Select [ 5, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   MiddlewareSubnet1:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref MiddlewareSubnetCidr1
+      CidrBlock: !Select [ 6, !Cidr [ !Ref VpcCidr, 12, 8 ] ]
       VpcId: !Ref Vpc
 
   MiddlewareSubnet2:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref MiddlewareSubnetCidr2
+      CidrBlock: !Select [ 7, !Cidr [ !Ref VpcCidr, 12, 8 ]]
       VpcId: !Ref Vpc
 
   MiddlewareSubnet3:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref MiddlewareSubnetCidr3
+      CidrBlock: !Select [ 8, !Cidr [ !Ref VpcCidr, 12, 8 ]]
       VpcId: !Ref Vpc
 
   DatabaseSubnet1:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref DatabaseSubnetCidr1
+      CidrBlock: !Select [ 9, !Cidr [ !Ref VpcCidr, 12, 8 ]]
       VpcId: !Ref Vpc
 
   DatabaseSubnet2:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref DatabaseSubnetCidr2
+      CidrBlock: !Select [ 10, !Cidr [ !Ref VpcCidr, 12, 8]]
       VpcId: !Ref Vpc
 
   DatabaseSubnet3:
     Type: "AWS::EC2::Subnet"
     Properties:
-      CidrBlock: !Ref DatabaseSubnetCidr3
+      CidrBlock: !Select [ 11, !Cidr [ !Ref VpcCidr, 12, 8]]
       VpcId: !Ref Vpc
