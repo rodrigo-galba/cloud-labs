@@ -1,0 +1,58 @@
+[
+  {
+    "ParameterKey": "Environment",
+    "ParameterValue": "test"
+  },
+  {
+    "ParameterKey": "VpcCidr",
+    "ParameterValue": "10.0.0.0/16"
+  },
+  {
+    "ParameterKey": "PublicSubnetCidr1",
+    "ParameterValue": "10.0.1.0/24"
+  },
+  {
+    "ParameterKey": "PublicSubnetCidr2",
+    "ParameterValue": "10.0.2.0/24"
+  },
+  {
+  "ParameterKey": "PublicSubnetCidr3",
+  "ParameterValue": "10.0.3.0/24"
+  },
+  {
+  "ParameterKey": "WebTierSubnetCidr1",
+  "ParameterValue": "10.0.4.0/24"
+  },
+  {
+    "ParameterKey": "WebTierSubnetCidr2",
+    "ParameterValue": "10.0.5.0/24"
+  },
+  {
+    "ParameterKey": "WebTierSubnetCidr3",
+    "ParameterValue": "10.0.6.0/24"
+  },
+  {
+    "ParameterKey": "MiddlewareSubnetCidr1",
+    "ParameterValue": "10.0.7.0/24"
+  },
+  {
+    "ParameterKey": "MiddlewareSubnetCidr2",
+    "ParameterValue": "10.0.8.0/24"
+  },
+  {
+    "ParameterKey": "MiddlewareSubnetCidr3",
+    "ParameterValue": "10.0.9.0/24"
+  },
+  {
+    "ParameterKey": "DatabaseSubnetCidr1",
+    "ParameterValue": "10.0.10.0/24"
+  },
+  {
+    "ParameterKey": "DatabaseSubnetCidr2",
+    "ParameterValue": "10.0.11.0/24"
+  },
+  {
+    "ParameterKey": "DatabaseSubnetCidr3",
+    "ParameterValue": "10.0.12.0/24"
+  }
+]

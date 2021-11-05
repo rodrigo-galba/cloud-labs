@@ -97,9 +97,21 @@ $ aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aw
 
 4. Go to drift changes and see the difference.
 
+## 3 tier stack
+
+To create core-stack for the first time:
+```shell
+aws cloudformation create-stack --stack-name core-stack --template-body file://stack/core.yaml \
+  --parameters file://stack/test-env.json
+```
+
+To update core-stack:
+```shell
+aws cloudformation update-stack --stack-name core-stack --template-body file://stack/core.yaml
+ --parameters file://stack/test-env.json
+```
 
 ## General questions
-
 
 1. Which API method is invoked when we create a CloudFormation stack? 
 2. What is a CloudFormation service role? 
