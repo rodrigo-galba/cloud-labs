@@ -96,3 +96,16 @@ $ aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aw
 ```
 
 4. Go to drift changes and see the difference.
+
+
+## General questions
+
+
+1. Which API method is invoked when we create a CloudFormation stack? 
+2. What is a CloudFormation service role? 
+3. Which IAM policies are used if we do not specify the CloudFormation service role? 
+4. How is the information about stack resources stored in CloudFormation? 
+5. What happens if we delete the resource created by CloudFormation and try to create the same stack? 
+6. What happens if we delete the resource created by CloudFormation and try to update the same stack? 
+7. Why can't CloudFormation recreate the deleted resource?
+
