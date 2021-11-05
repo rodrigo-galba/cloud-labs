@@ -1,8 +1,15 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: This is my first bucket
+Description: >
+  This is my first bucket
+  Multine description
+
 Resources:
   SimpleBucket:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
+Outputs:
+  BucketArn:
+    Value: !GetAtt SimpleBucket.Arn
+
 
