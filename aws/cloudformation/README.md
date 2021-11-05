@@ -109,3 +109,10 @@ $ aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aw
 6. What happens if we delete the resource created by CloudFormation and try to update the same stack? 
 7. Why can't CloudFormation recreate the deleted resource?
 
+## Further reading
+
+- CloudFormation service roles: [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html)
+- Drift detection in CloudFormation: [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html)
+
+
+
