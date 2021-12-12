@@ -11,3 +11,6 @@ terraform/docker/.terraform/providers/registry.terraform.io/kreuzwerker/docker/2
 terraform/docker/.terraform/providers/registry.terraform.io/kreuzwerker/docker/2.15.0/windows_amd64/terraform-provider-docker_v2.15.0.exe
 terraform/docker/terraform.tfstate
 terraform/docker/terraform.tfstate.backup
+golang/go-docker/bin/application
+*.exe
+*.iml
