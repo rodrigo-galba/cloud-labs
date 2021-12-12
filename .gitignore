@@ -4,6 +4,7 @@ eks-kube-config
 eks-kube-config.eksctl.lock
 ssh.pem
 .idea/**
+**/*/.idea/**
 terraform/docker/.terraform/**
 terraform/docker/.terraform.lock.hcl
 terraform/docker/.terraform/providers/registry.terraform.io/kreuzwerker/docker/2.15.0/windows_amd64/LICENSE
