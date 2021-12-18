@@ -5,6 +5,7 @@ eks-kube-config.eksctl.lock
 ssh.pem
 .idea/**
 **/*/.idea/**
+**/*/.mvn/**
 terraform/docker/.terraform/**
 terraform/docker/.terraform.lock.hcl
 terraform/docker/.terraform/providers/registry.terraform.io/kreuzwerker/docker/2.15.0/windows_amd64/LICENSE
@@ -14,3 +15,43 @@ terraform/docker/terraform.tfstate.backup
 golang/go-docker/bin/application
 *.exe
 *.iml
+
+@@ -0,0 +1,38 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
