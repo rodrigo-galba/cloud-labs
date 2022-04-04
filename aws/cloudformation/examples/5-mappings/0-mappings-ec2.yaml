@@ -60,6 +60,7 @@ Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
+      # !FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
       InstanceType: !FindInMap [EnvironmentToInstanceType, !Ref 'EnvironmentName', instanceType]
       # Note we use the pseudo parameter AWS::Region
       ImageId: !FindInMap [AWSRegionArch2AMI, !Ref 'AWS::Region', HVM64]

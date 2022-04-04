@@ -1,0 +1,9 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 300
+      MemorySize: 128
+      Handler: main
+      CodeUri: D:\dev\cloud-labs\golang\go-lambda\hello-world
+      Runtime: go1.x

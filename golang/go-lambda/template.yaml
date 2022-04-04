@@ -1,0 +1,31 @@
+# CloudFormation types reference: https://docs.aws.amazon.com/pt_br/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  go-lambda
+  
+  Lambda functions to use serverless services
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 5
+
+Resources:
+  MySqsQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: app-dev-queue
+  SQSConsumerFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: sqs-consumer-function/
+      Handler: sqs-consumer-function
+      Runtime: go1.x
+#      Role: arn:aws:iam::504570576942:role/lambda-apps-roles
+#      Policies:  # https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html
+#        - AWSLambdaBasicExecutionRole
+#      Tracing: Active # https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
+#      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+#        Variables:
+#          DRY_RUN: false

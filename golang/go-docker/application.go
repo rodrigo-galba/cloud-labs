@@ -1,29 +1,23 @@
 package main
 
 import (
+	"database/sql"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/go-sql-driver/mysql"
 	"net/http"
 	"os"
 	"rsc.io/quote"
+	"strconv"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
-type album struct {
-	ID     string  `json:"id"`
+type Album struct {
+	ID     int  `json:"id"`
 	Title  string  `json:"title"`
 	Artist string  `json:"artist"`
 	Price  float64 `json:"price"`
-}
-
-type response struct {
-	key string `json:"key"`
-	value string `json:"value"`
-}
-
-// albums slice to seed record album data.
-var albums = []album{
-	{ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
-	{ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
-	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
 }
 
 func main() {
@@ -43,14 +37,50 @@ func index(c *gin.Context) {
 		"status": http.StatusOK})
 }
 
+func dbConn() (db *sql.DB) {
+	// Capture connection properties.
+	cfg := mysql.Config{
+		User:   os.Getenv("db_user"),
+		Passwd: os.Getenv("db_pass"),
+		Net:    "tcp",
+		Addr:   os.Getenv("db_url"),
+		DBName: os.Getenv("db_name"),
+	}
+	// Get a database handle.
+	var err error
+	db, err = sql.Open("mysql", cfg.FormatDSN())
+	if err != nil {
+		panic(err.Error())
+	}
+	return db
+}
+
 // getAlbums responds with the list of all albums as JSON.
 func getAlbums(c *gin.Context) {
+	db := dbConn()
+	selDB, err := db.Query("SELECT * FROM album ORDER BY id DESC")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	item := Album{}
+	albums := []Album{}
+
+	for selDB.Next() {
+		err = selDB.Scan(&item.ID, &item.Title, &item.Artist, &item.Price)
+		if err != nil {
+			panic(err.Error())
+		}
+		albums = append(albums, item)
+	}
+	defer db.Close()
+
 	c.IndentedJSON(http.StatusOK, albums)
 }
 
-// postAlbums adds an album from JSON received in the request body.
+// postAlbums adds an Album from JSON received in the request body.
 func postAlbums(c *gin.Context) {
-	var newAlbum album
+	var newAlbum Album
 
 	// Call BindJSON to bind the received JSON to
 	// newAlbum.
@@ -58,23 +88,44 @@ func postAlbums(c *gin.Context) {
 		return
 	}
 
-	// Add the new album to the slice.
-	albums = append(albums, newAlbum)
+	// Add the new Album to the slice.
+	//albums = append(albums, newAlbum)
 	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
-// getAlbumByID locates the album whose ID value matches the id
-// parameter sent by the client, then returns that album as a response.
+// getAlbumByID locates the Album whose ID value matches the id
+// parameter sent by the client, then returns that Album as a response.
 func getAlbumByID(c *gin.Context) {
-	id := c.Param("id")
-
-	// Loop over the list of albums, looking for
-	// an album whose ID value matches the parameter.
-	for _, a := range albums {
-		if a.ID == id {
-			c.IndentedJSON(http.StatusOK, a)
-			return
-		}
+	input := c.Param("id")
+	id, _ := strconv.Atoi(input)
+	albums, err := albumsById(id)
+	if err != nil {
+		c.IndentedJSON(http.StatusNotFound, gin.H{"message": "Album not found"})
+	} else {
+		c.IndentedJSON(http.StatusOK, albums)
 	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}
+
+// albumsByArtist queries for albums that have the specified artist name.
+func albumsById(id int) ([]Album, error) {
+	var albums []Album
+
+	db := dbConn()
+	rows, err := db.Query("SELECT * FROM album WHERE id = ?", id)
+	if err != nil {
+		return nil, fmt.Errorf("albumsById %q: %v", id, err)
+	}
+	defer rows.Close()
+	// Loop through rows, using Scan to assign column data to struct fields.
+	for rows.Next() {
+		var alb Album
+		if err := rows.Scan(&alb.ID, &alb.Title, &alb.Artist, &alb.Price); err != nil {
+			return nil, fmt.Errorf("albumsById %q: %v", id, err)
+		}
+		albums = append(albums, alb)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("albumsById %q: %v", id, err)
+	}
+	return albums, nil
 }
