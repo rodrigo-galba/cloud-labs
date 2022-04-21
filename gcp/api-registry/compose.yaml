@@ -1,12 +1,14 @@
 version: '3.9'
 services:
-  registry:
+  registry-server:
     image: rogal/apigee-registry
     ports:
       - "8080:8080"
     environment:
       REGISTRY_DATABASE_DRIVER: postgres
       REGISTRY_DATABASE_CONFIG: "host=db port=5432 user=apigee dbname=apigee password=apigee sslmode=disable"
+    depends_on:
+      - postgres
     links:
       - postgres:db
   postgres:
