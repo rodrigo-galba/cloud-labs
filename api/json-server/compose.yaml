@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  app:
+    image: clue/json-server
+    volumes:
+      - ./files:/data
+    ports:
+      - 8081:80
