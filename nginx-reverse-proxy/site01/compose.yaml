@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  app:
+    image: nginx
+    volumes:
+      - .:/usr/share/nginx/html
+    ports:
+      - "80"
