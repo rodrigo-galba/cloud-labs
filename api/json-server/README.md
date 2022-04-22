@@ -7,6 +7,7 @@ Get a full fake REST API with zero coding in less than 30 seconds (seriously).
 ### How to run
 
 ```
+cd api/json-server
 docker-compose up
 ```
 
