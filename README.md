@@ -3,7 +3,7 @@
 Code, docs and all stuff related to cloud.  
 Tools found here: AWS tools, Terraform, Python, Go, Kubernetes, Ansible and more.  
 
-## Basic tools installing reference
+## Basic tools
 
 ### AWS CLI v2
 
