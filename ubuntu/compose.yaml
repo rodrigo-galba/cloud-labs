@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  ubuntu:
+    build: .
+    volumes:
+      - ./:/data
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
