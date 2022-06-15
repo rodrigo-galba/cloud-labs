@@ -1,0 +1,8 @@
+{
+  "name": "fast-my-api",
+  "version": "1.0.0",
+  "author": "Rodrigo Galba",
+  "devDependencies": {
+    "serverless-python-requirements": "^5.4.0"
+  }
+}
