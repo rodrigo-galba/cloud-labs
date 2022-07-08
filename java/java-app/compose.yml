@@ -1,0 +1,33 @@
+services:
+  devcontainer:
+    container_name: devcontainer
+    hostname: devcontainer
+    build:
+      context: .devcontainer/
+      dockerfile: Dockerfile
+      args:
+        - base=20.04
+        - use_build_essential=true
+#    environment:
+#      - PUID=1000
+#      - PGID=1000
+#      - USER_NAME=${USER}
+#      - GROUP_NAME=${USER}
+#      # - DOCKER_GID=1001
+#      - DOCKER_ALLOWS_NON_ROOT=true
+#      - CONDA_AUTO_ACTIVATE_BASE=true
+    ports:
+      - "2222:22"
+#    volumes:
+#      - ./data:/mnt/data
+#      - /var/run:/mnt/host/var/run
+#      - /home/${USER}/workspaces:/home/${USER}/workspaces
+    network_mode: bridge
+    restart: on-failure
+
+  web:
+    build: .
+    environment:
+      - DEBUG=1
+    env_file:
+      - .env
