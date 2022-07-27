@@ -30,6 +30,18 @@ On WSL 2 #use NVM
 
 ```
 
+## pipenv
+
+On windows
+```
+C:\Users\user\AppData\Roaming\Python\Python310\Scripts\pipenv.exe --python python
+C:\Users\user\AppData\Roaming\Python\Python310\Scripts\pipenv.exe shell
+```
+
+## CLI app
+
+- Database backup tool
+- EC2 instance backup tool
 
 References
 
@@ -37,3 +49,4 @@ References
 - https://fastapi.tiangolo.com/
 - https://dwisulfahnur.medium.com/fastapi-deployment-to-aws-lambda-with-serverless-framework-b637b455142c
 - https://docs.microsoft.com/pt-br/windows/dev-environment/javascript/nodejs-on-wsl
+- https://www.pythontutorial.net/python-basics/install-pipenv-windows/
