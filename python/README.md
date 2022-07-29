@@ -43,6 +43,49 @@ C:\Users\user\AppData\Roaming\Python\Python310\Scripts\pipenv.exe shell
 - Database backup tool
 - EC2 instance backup tool
 
+## Upgrade to Python 3.10
+
+Ubuntu:
+
+```
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+apt list | grep python3.10
+sudo apt install python3.10
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
+sudo update-alternatives --config python3
+sudo apt remove --purge python3-apt
+sudo apt autoclean
+sudo apt install python3-apt
+sudo apt install python3.10-distutils
+sudo apt install python3.10-venv
+python3 -m venv venv
+source venv/bin/activate
+pip install pipenv
+pipenv shell
+```
+
+## Running Postgresl
+
+```
+docker-compose up
+```
+
+### Install postgresl client
+
+Go to WSL:
+```
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt -y update
+sudo apt install postgresql-client-14
+```
+
+Connect to DB:
+```
+pg_dump -h 192.168.50.130 -U userdb -d userdb # userdb
+```
+
 References
 
 - https://adem.sh/blog/tutorial-fastapi-aws-lambda-serverless
@@ -50,3 +93,4 @@ References
 - https://dwisulfahnur.medium.com/fastapi-deployment-to-aws-lambda-with-serverless-framework-b637b455142c
 - https://docs.microsoft.com/pt-br/windows/dev-environment/javascript/nodejs-on-wsl
 - https://www.pythontutorial.net/python-basics/install-pipenv-windows/
+- https://cloudbytes.dev/snippets/upgrade-python-to-latest-version-on-ubuntu-linux
