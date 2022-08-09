@@ -1,3 +1,11 @@
+# EC2 instance export
+
+- Create a bucket to send instance blob
+- Give proper access to the EC2 service AWS account
+- Change export.json file to refer the created bucket
+- Get EC2 instance ID
+
+
 ## Import instance
 
 ```
