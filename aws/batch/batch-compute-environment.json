@@ -1,0 +1,20 @@
+{
+    "computeEnvironmentName": "cronjob-runtime",
+    "type": "MANAGED",
+    "state": "ENABLED",
+    "computeResources": {
+      "type": "FARGATE",
+      "minvCpus": 0,
+      "maxvCpus": 128,
+      "desiredvCpus": 1,
+      "subnets": [
+        "subnet-220c0e0a",
+        "subnet-1a95556d",
+        "subnet-978f6dce"
+      ],
+      "securityGroupIds": [
+        "sg-cf5093b2"
+      ]
+    },
+    "serviceRole": "arn:aws:iam::012345678910:role/AWSBatchServiceRole"
+  }

@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Stmt1660009798501",
+        "Action": "ecs:*",
+        "Effect": "Allow",
+        "Resource": "*"
+      },
+      {
+        "Sid": "Stmt1660010008359",
+        "Action": [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream"
+        ],
+        "Effect": "Allow",
+        "Resource": "*"
+      }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "jobQueueName": "cronjob-queue",
+    "state": "ENABLED",
+    "priority": 1,
+    "computeEnvironmentOrder": [
+      {
+        "order": 1,
+        "computeEnvironment": "cronjob-runtime"
+      }
+    ]
+}
