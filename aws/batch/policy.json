@@ -10,8 +10,7 @@
       {
         "Sid": "Stmt1660010008359",
         "Action": [
-          "logs:CreateLogGroup",
-          "logs:CreateLogStream"
+          "logs:*"
         ],
         "Effect": "Allow",
         "Resource": "*"
