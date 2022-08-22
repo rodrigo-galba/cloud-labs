@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 colorama = "*"
+psycopg2-binary = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
 
 [dev-packages]
 python-dotenv = "*"
