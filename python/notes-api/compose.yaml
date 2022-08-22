@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  postgres:
+    restart: always
+    image: postgres
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "${POSTGRES_USER}" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    ports:
+      - "5432:5432"
+    environment:
+      DEBUG:  'true'
+      POSTGRES_PASSWORD: s3cr3t
+      POSTGRES_USER: notes
+      POSTGRES_DB: notes
+      POSTGRES_HOST: db
+    volumes: 
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local  

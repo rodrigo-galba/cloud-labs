@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 flask = "*"
+colorama = "*"
 
 [dev-packages]
+python-dotenv = "*"
 
 [requires]
 python_version = "3.10"
