@@ -1,0 +1,69 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: AWS Batch processing solution
+
+Parameters:
+  StackName:
+    Type: String
+    Default: batch-processing-job
+    Description: The name of the application stack
+  SubnetIds:
+    Description: The array of Subnet IDs
+    Default: subnet-0e41e9a74343cb810
+    Type: List<AWS::EC2::Subnet::Id>
+  SecGroupIds:
+    Description: Security groups list
+    Default: sg-096ad472e0aa6c8ac
+    Type: List<AWS::EC2::SecurityGroup::Id>
+
+Resources:
+  BatchServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: batch.amazonaws.com
+          Action: sts:AssumeRole
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole
+
+  BatchLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties: 
+      LogGroupName: !Sub ${StackName}-awslogs
+      RetentionInDays: 7
+
+  ComputeEnvironment:
+    Type: AWS::Batch::ComputeEnvironment
+    Properties:
+      ComputeEnvironmentName: cronjob-runtime
+      Type: MANAGED
+      State: ENABLED
+      ComputeResources:
+        Type: FARGATE
+        MaxvCpus: 128
+        Subnets: !Split [',', !Join [',', !Ref SubnetIds]]
+        SecurityGroupIds: !Split [',', !Join [',', !Ref SecGroupIds]]
+      ServiceRole:
+        Ref: BatchServiceRole
+
+  JobQueue:
+    Type: AWS::Batch::JobQueue
+    Properties:
+      JobQueueName: !Sub "${StackName}-queue"
+      State: ENABLED
+      Priority: 1
+      ComputeEnvironmentOrder:
+        - Order: 1
+          ComputeEnvironment:
+            Ref: ComputeEnvironment
+
+Outputs:
+  ComputeEnvironmentArn:
+    Value:
+      Ref: ComputeEnvironment
+  BatchProcessingJobQueueArn:
+    Value:
+      Ref: JobQueue

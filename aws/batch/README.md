@@ -1,5 +1,52 @@
 # AWS Batch script
 
+## Cloudformation Setup
+
+### IAM
+
+Create a role to give permission to create the stack:
+```
+aws cloudformation create-stack --stack-name cronjob-role --template-body file://templates/cronjob-stack-role.yaml --capabilities CAPABILITY_IAM
+IAM_ROLE_ARN=$(aws cloudformation describe-stacks \
+                                    --stack-name cronjob-role \
+--query "Stacks[0].Outputs[?OutputKey=='IamRole'].OutputValue" \
+--output text)
+```
+
+### VPC
+
+Get default VPC using the command line
+
+```
+VPC_ID=$(aws ec2 describe-vpcs --filters Name=isDefault,Values=true --query "Vpcs[].VpcId" --region us-east-1 --output text)
+```
+
+Get subnets:
+```
+SUBNETS=$(aws ec2 describe-subnets --filters Name=vpc-id,Values=$VPC_ID --query "Subnets[].SubnetId" --output text)
+SUBNET_PARAMS=$(echo $SUBNETS | sed 's/ /\\,/g')
+$ echo $SUBNET_PARAMS
+subnet-0536a594ba230b038\,subnet-0c81ae33fb10d598e\,subnet-01ad3b28e165c140e\,subnet-0950363a9f371885b\,subnet-0f844786492602113\,subnet-0e41e9a74343cb810
+```
+
+Get security groups:
+```
+SEC_GROUPS=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC_ID --query "SecurityGroups[].GroupId" --output text)
+SEC_GROUPS_PARAMS=$(echo $SEC_GROUPS | sed 's/ /\\,/g')
+$ echo $SEC_GROUPS_PARAMS
+sg-096ad472e0aa6c8ac
+```
+## Batch
+
+Create computing environment
+
+```
+STACK_NAME=cronjob-stack
+aws cloudformation create-stack --stack-name $STACK_NAME --parameters ParameterKey=StackName,ParameterValue=$STACK_NAME ParameterKey=SubnetIds,ParameterValue=$SUBNET_PARAMS ParameterKey=SecGroupIds,ParameterValue=$SEC_GROUPS_PARAMS --template-body file://templates/cronjob-stack.yaml --role-arn $IAM_ROLE_ARN --capabilities CAPABILITY_IAM
+
+aws cloudformation update-stack --stack-name $STACK_NAME --parameters ParameterKey=StackName,ParameterValue=$STACK_NAME ParameterKey=SubnetIds,ParameterValue=$SUBNET_PARAMS ParameterKey=SecGroupIds,ParameterValue=$SEC_GROUPS_PARAMS --template-body file://templates/cronjob-stack.yaml --role-arn $IAM_ROLE_ARN --capabilities CAPABILITY_IAM
+```
+
 ## IAM
 
 ### Create IAM policy
