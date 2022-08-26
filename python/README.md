@@ -86,6 +86,12 @@ Connect to DB:
 pg_dump -h 192.168.50.130 -U userdb -d userdb # userdb
 ```
 
+### Git ignore
+
+```
+wget https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore -O .gitignore
+```
+
 References
 
 - https://adem.sh/blog/tutorial-fastapi-aws-lambda-serverless
