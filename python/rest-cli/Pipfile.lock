@@ -1,0 +1,45 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "533f4a42c11251b0a262d94c5198f25d0ba710495e1c2a0aa45b9c358848d3c0"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.10"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "click": {
+            "hashes": [
+                "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e",
+                "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"
+            ],
+            "index": "pypi",
+            "version": "==8.1.3"
+        },
+        "colorama": {
+            "hashes": [
+                "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da",
+                "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"
+            ],
+            "markers": "platform_system == 'Windows'",
+            "version": "==0.4.5"
+        },
+        "setuptools": {
+            "hashes": [
+                "sha256:2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82",
+                "sha256:7732871f4f7fa58fb6bdcaeadb0161b2bd046c85905dbaa066bdcbcc81953b57"
+            ],
+            "index": "pypi",
+            "version": "==65.3.0"
+        }
+    },
+    "develop": {}
+}
