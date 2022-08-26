@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 click = "*"
 setuptools = "*"
+restcli = {editable = true, path = "."}
 
 [dev-packages]
 

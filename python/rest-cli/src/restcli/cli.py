@@ -1,7 +1,6 @@
 import click
 
-
-@click.group()
+@click.group("cli")
 def cli():
     pass
 
@@ -12,8 +11,6 @@ def hello(count, name):
     """Say Hello for given NAME for a total of COUNT times."""
     for x in range(count):
         click.echo(f"Hello {name}!")
-
-cli.add_command(hello)
 
 if __name__ == '__main__':
     cli()

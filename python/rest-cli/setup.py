@@ -18,9 +18,8 @@ setup(
     package_dir={'': 'src'},
     install_requires=['click'],
     python_requires='>=3.9',
-    entry_points={
-        'console_scripts':[
-            'restcli=restcli:cli'
-        ],
-    }
+    entry_points='''
+        [console_scripts]
+        restcli=restcli.cli:cli
+    ''',
 )
