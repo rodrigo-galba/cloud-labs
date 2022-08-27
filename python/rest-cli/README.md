@@ -23,3 +23,9 @@ Options:
   --count INTEGER  Number of greetings.
   --help           Show this message and exit.
 ```
+
+References
+
+- https://click.palletsprojects.com/en/8.1.x/quickstart/
+- https://pymbook.readthedocs.io/en/latest/click.html
+- https://requests.readthedocs.io/en/latest/

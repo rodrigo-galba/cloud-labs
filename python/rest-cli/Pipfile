@@ -7,6 +7,7 @@ name = "pypi"
 click = "*"
 setuptools = "*"
 restcli = {editable = true, path = "."}
+requests = "*"
 
 [dev-packages]
 
