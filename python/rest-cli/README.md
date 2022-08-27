@@ -29,3 +29,5 @@ References
 - https://click.palletsprojects.com/en/8.1.x/quickstart/
 - https://pymbook.readthedocs.io/en/latest/click.html
 - https://requests.readthedocs.io/en/latest/
+- https://zetcode.com/python/configparser/
+- https://click.palletsprojects.com/en/8.1.x/options/

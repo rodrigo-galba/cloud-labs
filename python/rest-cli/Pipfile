@@ -8,6 +8,7 @@ click = "*"
 setuptools = "*"
 restcli = {editable = true, path = "."}
 requests = "*"
+configparser = "*"
 
 [dev-packages]
 

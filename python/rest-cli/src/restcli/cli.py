@@ -1,5 +1,6 @@
+from os import access
 import click
-from restcli import storage, http_client
+from restcli import http_client, configure
 
 @click.group("cli")
 def cli():
@@ -66,9 +67,18 @@ def options(url, count):
 
 
 @cli.command()
-def init():
+@click.option('--cluster_url', prompt='URL to access cluster')
+@click.option('--access_key', prompt='ACCESS_KEY to access cluster')
+@click.option('--secret_key', prompt='SECRET_KEY to access cluster')
+def init(cluster_url, access_key, secret_key):
     """Initialize application"""
-    cluster_url = click.prompt('Inform URL to access cluster:')
+    data = {
+        'cluster_url': cluster_url,
+        'access_key': access_key,
+        'secret_key': secret_key
+    }
+
+    configure.init(data)
 
 if __name__ == '__main__':
     cli()
