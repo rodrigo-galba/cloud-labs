@@ -8,8 +8,10 @@
 
 Launch an instance (by default you get the current Ubuntu LTS) named `cloudbox` with 4GB in RAM:  
 ```bash
-multipass launch -n cloudbox -m 4G
-multipass launch -n devbox -m 4G
+multipass launch -n cloudbox --disk 20G -m 4G
+multipass launch -n k8s-node1 --disk 20G -m 4G
+multipass launch -n k8s-node2 --disk 20G -m 4G
+multipass launch -n devbox --disk 20G -m 4G
 ```
 
 ## Run commands
@@ -62,3 +64,5 @@ TBD
 ## SSH setup
 
 TBD
+
+ã
