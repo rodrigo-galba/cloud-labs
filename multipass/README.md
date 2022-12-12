@@ -8,7 +8,7 @@
 
 Launch an instance (by default you get the current Ubuntu LTS) named `cloudbox` with 4GB in RAM:  
 ```bash
-multipass launch -n cloudbox -m 4G
+multipass launch -n cloudbox -m 4G -d 10G --clout-init cloudbox-config.yaml
 multipass launch -n devbox -m 4G
 ```
 
@@ -61,4 +61,10 @@ TBD
 
 ## SSH setup
 
-TBD
+- TBD
+- https://cloudinit.readthedocs.io/en/latest/topics/examples.html#configure-instances-ssh-keys
+
+## Cloud-config
+
+- https://cloudinit.readthedocs.io/en/latest/
+- https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
