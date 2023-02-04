@@ -9,6 +9,10 @@ sudo apt install python3.10-dev python3.10-venv python3.10-distutils python3.10-
 
 ## Microk8s
 
+```
+sudo iptables -P FORWARD ACCEPT
+```
+
 Configure Docker after install microk8s:
 ```
 sudo vim /etc/docker/daemon.json
