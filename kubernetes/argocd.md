@@ -24,3 +24,18 @@ argocd login localhost:32316
 kubectl config set-context --current --namespace=argocd
 argocd app create guestbook --repo https://github.com/rodrigo-galba/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
 ```
+
+## Create app using helm
+
+Argo CD has native support for Helm built in.  
+
+- https://argo-cd.readthedocs.io/en/stable/user-guide/helm/
+
+```
+argocd app create helm-guestbook --repo https://github.com/rodrigo-galba/argocd-example-apps.git --path helm-guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
+kubectl patch svc helm-guestbook -n default -p '{"spec": {"type": "NodePort"}}'
+```
+
+
+References
+- https://www.digitalocean.com/community/tutorials/how-to-deploy-to-kubernetes-using-argo-cd-and-gitops
