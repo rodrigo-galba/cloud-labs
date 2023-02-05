@@ -3,9 +3,11 @@
 ## Setup
 
 ```
+sudo snap alias microk8s.kubectl kubectl
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+kubectl get svc argocd-server -n argocd -o yaml | yq '.spec.ports[0].nodePort'
 ngrok http 32316 --basic-auth 'ngrok:issecure'
 ```
 
@@ -22,5 +24,5 @@ argocd login localhost:32316
 
 ```
 kubectl config set-context --current --namespace=argocd
-argocd app create guestbook --repo https://github.com/rodrigo-galba/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
+argocd app create guestbook --repo https://github.com/rodrigo-galba/argocd-example-apps.git --path helm-guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
 ```
