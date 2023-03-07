@@ -28,3 +28,11 @@ Plugin: 5.4.6
 SDK: 4.3.0
 Components: 3.17.1
 ```
+
+### TODOS
+
+[] Ansible shell container
+[] Backstage.io deployment on Microk8s
+[] Minio plugin for Microk8s
+[] Crossplane
+[] ArgoCD
