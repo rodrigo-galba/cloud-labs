@@ -6,6 +6,7 @@ $ restcli_
 
 ```
 cd rest-cli
+python -m pip install pipenv
 pipenv --python=3.9
 pipenv shell
 pipenv install --editable .
