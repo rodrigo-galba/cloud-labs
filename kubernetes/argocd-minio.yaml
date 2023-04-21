@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: 'https://charts.bitnami.com/bitnami'
+  targetRevision: 12.1.3
+  helm:
+    parameters:
+      - name: global.storageClass
+        value: microk8s-hostpath
+      - name: service.type
+        value: NodePort
+  chart: minio
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: dev
+syncPolicy: {}

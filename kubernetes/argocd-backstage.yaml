@@ -1,0 +1,16 @@
+project: default
+source:
+  repoURL: 'https://backstage.github.io/charts'
+  targetRevision: 0.15.1
+  helm:
+    parameters:
+      - name: postgresql.auth.existingSecret
+        value: postgresql-dev
+      - name: service.type
+        value: NodePort
+      - name: service.nodePorts.backend
+        value: '30007'
+  chart: backstage
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: dev

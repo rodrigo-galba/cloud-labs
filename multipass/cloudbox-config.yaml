@@ -1,0 +1,22 @@
+#cloud-config
+version: v1
+packages_update: true
+packages_upgrade: true
+
+apt:
+  primary:
+    - arches: [default]
+      search_dns: True
+
+packages:
+  - ansible
+  - git
+  - uuid
+
+snap:
+  commands:
+    - ['install', 'microk8s', '--classic', '--channel=1.25']
+
+runcmd:
+  - sudo usermod -a -G microk8s ubuntu
+  - sudo chown -f -R ubuntu ~/.kube
