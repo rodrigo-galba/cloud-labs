@@ -6,11 +6,12 @@ name = "pypi"
 [packages]
 click = "*"
 setuptools = "*"
-restcli = {editable = true, path = "."}
 requests = "*"
 configparser = "*"
+restcli = {editable = true, path = "."}
 
 [dev-packages]
+pytest = "*"
 
 [requires]
 python_version = "3.10"

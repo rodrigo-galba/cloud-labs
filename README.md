@@ -31,8 +31,8 @@ Components: 3.17.1
 
 ### TODOS
 
-[] Ansible shell container
-[] Backstage.io deployment on Microk8s
-[] Minio plugin for Microk8s
-[] Crossplane
-[] ArgoCD
+[] Ansible shell container  
+[x] Backstage.io deployment on Microk8s  
+[] Minio plugin for Microk8s  
+[x] Crossplane  
+[x] ArgoCD  
