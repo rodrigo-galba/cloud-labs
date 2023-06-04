@@ -1,0 +1,14 @@
+project: default
+source:
+  repoURL: 'https://charts.bitnami.com/bitnami'
+  targetRevision: 12.6.2
+  helm:
+    parameters:
+      - name: global.storageClass
+        value: microk8s-hostpath
+      - name: query.service.type
+        value: NodePort
+  chart: thanos
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: observability

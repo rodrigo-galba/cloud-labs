@@ -1,0 +1,24 @@
+project: default
+source:
+  repoURL: 'https://prometheus-community.github.io/helm-charts'
+  targetRevision: 22.6.2
+  helm:
+    parameters:
+      - name: alertmanager.enabled
+        value: 'false'
+      - name: kube-state-metrics.enabled
+        value: 'false'
+      - name: prometheus-node-exporter.enabled
+        value: 'false'
+      - name: prometheus-pushgateway.enabled
+        value: 'false'
+      - name: rbac.create
+        value: 'false'
+      - name: server.name
+        value: server
+      - name: server.service.type
+        value: NodePort
+  chart: prometheus
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: observability
