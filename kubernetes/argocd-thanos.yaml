@@ -1,14 +1,33 @@
-project: default
-source:
-  repoURL: 'https://charts.bitnami.com/bitnami'
-  targetRevision: 12.6.2
-  helm:
-    parameters:
-      - name: global.storageClass
-        value: microk8s-hostpath
-      - name: query.service.type
-        value: NodePort
-  chart: thanos
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: observability
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: thanos
+spec:
+  project: default
+  source:
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 12.6.2
+    helm:
+      parameters:
+        - name: global.storageClass
+          value: microk8s-hostpath
+        - name: query.service.type
+          value: NodePort
+        - name: objstoreConfig
+          value: |-
+            type: s3
+            config:
+              bucket: thanos
+              endpoint: minio.dev.svc.cluster.local:9000
+              access_key: f7lWCc0oFNyyP7Hc
+              secret_key: WJ8Eqjg8bX4JennmbWF43Qa0ZnXIJx4F
+              insecure: true
+        - name: query.stores
+          value: {prometheus-server:10901, prometheus-server-observability.svc.cluster.local:10901, prometheus-server, prometheus-server.observability.scv.cluster.local}
+        - name: queryFrontend.enabled
+          value: 'false'
+    chart: thanos
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: observability
+
