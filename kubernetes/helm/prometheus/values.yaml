@@ -1,0 +1,41 @@
+alertmanager:
+  enabled: false
+kube-state-metrics:
+  enabled: false
+prometheus-node-exporter:
+  enabled: false
+prometheus-pushgateway:
+  enabled: false
+rbac:
+  create: false
+server:
+  global:
+    external_labels:
+      cluster: z2-g3
+      replica: "0"
+  name: server
+  extraFlags:
+    - storage.tsdb.max-block-duration=2h
+    - storage.tsdb.min-block-duration=2h
+  # namespaces:
+  #   - default
+  sidecarContainers:
+    thanos-sidecar:
+      image: quay.io/thanos/thanos:v0.31.0
+      args:
+      - sidecar
+      - --log.level=debug
+      - --tsdb.path=/data
+      - | 
+        --objstore.config=
+          type: S3
+          config:
+            bucket: thanos
+            endpoint: minio:9000
+            access_key: JTTUHe73iYPR8gQveFdz
+            secret_key: QIe0e2Cqdp6YuCfTE28oxKkZ95JjKBrchAOxCla0
+            insecure: true
+      - --prometheus.url=http://127.0.0.1:9090
+  service:
+    type: NodePort
+# prometheus-server.default.svc.cluster.local
