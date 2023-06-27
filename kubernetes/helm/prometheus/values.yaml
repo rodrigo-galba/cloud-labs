@@ -39,6 +39,7 @@ server:
   # namespaces:
   #   - default
   sidecarContainers:
+  # https://thanos.io/tip/components/sidecar.md/#flags
     thanos-sidecar:
       image: quay.io/thanos/thanos:v0.31.0
       args:
@@ -89,6 +90,8 @@ server:
        prometheus.io/port: "9090"
   statefulSet:
     enabled: true
+  podLabels:
+    app: prometheus-app
   podAnnotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "10902"
