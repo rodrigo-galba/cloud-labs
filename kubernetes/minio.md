@@ -44,3 +44,10 @@ To access the MinIO&reg; web UI:
    export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
    echo "MinIO&reg; web URL: http://$NODE_IP:$NODE_PORT/minio"
 ```
+
+#### Sample user
+
+```
+f7lWCc0oFNyyP7Hc
+WJ8Eqjg8bX4JennmbWF43Qa0ZnXIJx4F
+```
