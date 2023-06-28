@@ -1,3 +1,4 @@
+# https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 alertmanager:
   enabled: false
 kube-state-metrics:
@@ -98,4 +99,6 @@ server:
   serverFiles:
     alerts: {}
     rules: {}
+  # extraScrapeConfigs: |
+   
 # prometheus-server.default.svc.cluster.local

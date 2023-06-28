@@ -26,3 +26,29 @@ argocd login localhost:32316
 kubectl config set-context --current --namespace=argocd
 argocd app create guestbook --repo https://github.com/rodrigo-galba/argocd-example-apps.git --path helm-guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
 ```
+
+# Prometheus
+
+
+- Edit Prometheus configmap:
+```
+kubectl edit configmap/prometheus-server
+```
+```yaml
+- job_name: argocd-metrics
+     metrics_path: /metrics
+     scheme: http
+     static_configs:
+     - targets: 
+       - argocd-metrics.argocd.svc.cluster.local:8082
+- job_name: argocd-server-metrics
+     metrics_path: /metrics
+     scheme: http
+     static_configs:
+     - targets: 
+       - argocd-server-metrics.argocd.svc.cluster.local:8083
+```
+- Reload prometheus config
+```
+curl -X POST http://192.168.50.143:31646/-/reload
+```
