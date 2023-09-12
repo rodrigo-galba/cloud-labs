@@ -1,0 +1,7 @@
+type: S3
+config:
+  bucket: thanos
+  endpoint: http://192.168.50.143:32725
+  access_key: JTTUHe73iYPR8gQveFdz
+  secret_key: QIe0e2Cqdp6YuCfTE28oxKkZ95JjKBrchAOxCla0
+  insecure: true

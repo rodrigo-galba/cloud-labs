@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Bucket to be used by Microk8s cluster
+Resources:
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: cluster-h2-g3-rodrigogalba
+Outputs:
+  BucketArn:
+    Value: !GetAtt MyBucket.Arn

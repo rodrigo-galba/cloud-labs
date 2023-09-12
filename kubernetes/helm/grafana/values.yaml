@@ -1,6 +1,6 @@
 service:
   type: NodePort
-  nodePort: 31234
+  nodePort: 30001
 persistence:
   enabled: true
   size: 1Gi

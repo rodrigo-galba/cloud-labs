@@ -1,28 +1,28 @@
 # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 alertmanager:
-  enabled: false
+  enabled: true
 kube-state-metrics:
   enabled: true
 pushgateway:
-  enabled: false
+  enabled: true
 nodeExporter:
   enabled: true
 kubeStateMetrics:
   enabled: true
 prometheus-node-exporter:
-  enabled: false
+  enabled: true
 prometheus-pushgateway:
-  enabled: false
+  enabled: true
 rbac:
   create: true
 
 initChownData:
   resources:
     limits:
-      memory: 16Mi
+      memory: 512Mi
       cpu: 50m
     requests:
-      memory: 16Mi
+      memory: 128Mi
       cpu: 50m
 
 server:
