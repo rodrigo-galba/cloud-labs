@@ -1,0 +1,19 @@
+---
+- hosts: all
+
+  vars_files:
+    - secret
+
+  vars:
+    host_user: "{{ lookup('env','USER') }}"
+
+  tasks:
+    - name: make sure the system encoding is utf-8
+      template:
+        src: templates/locale
+        dest: /etc/default/locale
+        owner: root
+        group: root
+        mode: 0644
+
+    - include_tasks: tasks/apt.yml
