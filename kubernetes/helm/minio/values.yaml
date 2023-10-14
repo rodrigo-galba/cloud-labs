@@ -1,0 +1,6 @@
+#https://github.com/bitnami/charts/tree/main/bitnami/minio
+storageClass: microk8s-hostpath
+service:
+  type: NodePort
+auth:
+  rootPassword: s3cr3t

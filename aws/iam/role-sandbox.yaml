@@ -1,0 +1,60 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAccess",
+            "Effect": "Allow",
+            "Action": [
+                "iam:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "DenyWindows",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:*"
+            ],
+            "Resource": [
+                "arn:*:ec2:*::image/ami-04ca2d0801450d495",
+                "arn:*:ec2:*::image/ami-0220fe618f784ff03",
+                "arn:*:ec2:*::image/ami-07143576a508f7106",
+                "arn:*:ec2:*::image/ami-007900f8c6bee1af9",
+                "arn:*:ec2:*::image/ami-0e68d9d1aafa53347",
+                "arn:*:ec2:*::image/ami-088c8c49c63ec3dbd",
+                "arn:*:ec2:*::image/ami-00877efa2d3025556",
+                "arn:*:ec2:*::image/ami-013e2b5127d181b0c",
+                "arn:*:ec2:*::image/ami-027930fde2107b8f2",
+                "arn:*:ec2:*::image/ami-082f94cb58f926555",
+                "arn:*:ec2:*::image/ami-0056b6a062f55f6a1",
+                "arn:*:ec2:*::image/ami-0df44240806ced84b",
+                "arn:*:ec2:*::image/ami-019f4bf51ecc136b2",
+                "arn:*:ec2:*::image/ami-047cb3ca56f97bf09",
+                "arn:*:ec2:*::image/ami-0daee40e15682f8fa",
+                "arn:*:ec2:*::image/ami-0d3f8fba08591e0cf",
+                "arn:*:ec2:*::image/ami-0cb2a062cc528a2ef",
+                "arn:*:ec2:*::image/ami-02666d31e797d5190",
+                "arn:*:ec2:*::image/ami-0be3b7126b85e11dc",
+                "arn:*:ec2:*::image/ami-057549bd0bba43bc1",
+                "arn:*:ec2:*::image/ami-02032f17e72613b98",
+                "arn:*:ec2:*::image/ami-0c4408d5bd00a68cc",
+                "arn:*:ec2:*::image/ami-07d011127facfdbcf",
+                "arn:*:ec2:*::image/ami-024bef10a93558dc7",
+                "arn:*:ec2:*::image/ami-0b2de5005b5c365a7",
+                "arn:*:ec2:*::image/ami-0b78867b3ec02d10a",
+                "arn:*:ec2:*::image/ami-09380bd107b455fe7",
+                "arn:*:ec2:*::image/ami-006e77d8705ade7da",
+                "arn:*:ec2:*::image/ami-03eeaf7f5121737e5",
+                "arn:*:ec2:*::image/ami-010cdc4882764fc03",
+                "arn:*:ec2:*::image/ami-08da2a9b0119b6a7d",
+                "arn:*:ec2:*::image/ami-0262d5a8a021c6e68",
+                "arn:*:ec2:*::image/ami-0cd42ec56ea78e107",
+                "arn:*:ec2:*::image/ami-05cf702a535de6430",
+                "arn:*:ec2:*::image/ami-027d69e964f391ffa",
+                "arn:*:ec2:*::image/ami-068dbfa5a0cf5f549",
+                "arn:*:ec2:*::image/ami-02be8da185ea62daa",
+                "arn:*:ec2:*::image/ami-08b88a1bffff1097b"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+# https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
+alertmanager:
+  enabled: true
+kube-state-metrics:
+  enabled: true
+pushgateway:
+  enabled: true
+nodeExporter:
+  enabled: true
+kubeStateMetrics:
+  enabled: true
+prometheus-node-exporter:
+  enabled: true
+prometheus-pushgateway:
+  enabled: true
+rbac:
+  create: true
+
+initChownData:
+  resources:
+    limits:
+      memory: 512Mi
+      cpu: 50m
+    requests:
+      memory: 128Mi
+      cpu: 50m
+
+server:
+  global:
+    external_labels:
+      cluster: z2-g3
+      replica: "0"
+  name: server
+  extraArgs:
+    log.level: debug
+  extraFlags:
+    - storage.tsdb.max-block-duration=2h
+    - storage.tsdb.min-block-duration=2h
+    - web.enable-lifecycle
+  # namespaces:
+  #   - default
+  sidecarContainers:
+  # https://thanos.io/tip/components/sidecar.md/#flags
+    thanos-sidecar:
+      image: quay.io/thanos/thanos:v0.31.0
+      args:
+      - sidecar
+      - --log.level=debug
+      - --tsdb.path=/data
+      - | 
+        --objstore.config=
+          type: S3
+          config:
+            bucket: thanos
+            endpoint: minio:9000
+            access_key: JTTUHe73iYPR8gQveFdz
+            secret_key: QIe0e2Cqdp6YuCfTE28oxKkZ95JjKBrchAOxCla0
+            insecure: true
+      - --prometheus.url=http://127.0.0.1:9090
+      - --reloader.config-file=/etc/prometheus-config/prometheus.yml
+      ports:
+      - name: sidecar-http
+        containerPort: 10902
+      - name: grpc
+        containerPort: 10901
+      - name: cluster
+        containerPort: 10900
+      volumeMounts:
+      - name: storage-volume
+        mountPath: /data
+      # - name: thanos-storage-secret
+      #   mountPath: /etc/secret
+      - name: config-volume
+        mountPath: /etc/prometheus-config
+        readOnly: false
+      - name: prometheus-config-shared
+        mountPath: /etc/prometheus-shared/
+        readOnly: false
+  persistentVolume:
+    size: 5Gi
+  extraVolumes:
+  - name: prometheus-config-shared
+    emptyDir: {}
+  extraVolumeMounts:
+  - name: prometheus-config-shared
+    mountPath: /etc/prometheus-shared/
+  service:
+    type: NodePort
+    annotations:
+       prometheus.io/scrape: "true"
+       prometheus.io/port: "9090"
+  statefulSet:
+    enabled: true
+  podLabels:
+    app: prometheus-app
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "10902"
+  serverFiles:
+    alerts: {}
+    rules: {}
+  # extraScrapeConfigs: |
+   
+# prometheus-server.default.svc.cluster.local

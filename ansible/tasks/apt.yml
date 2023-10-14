@@ -1,0 +1,45 @@
+---
+- name: update apt
+  apt: update_cache=yes
+  become: yes
+
+- name: install base packages
+  apt: pkg={{ item }} state=latest
+  become: yes
+  with_items:
+    - git-core
+    - curl
+    - zlib1g-dev
+    - build-essential
+    - libssl-dev
+    - libreadline-dev
+    - libyaml-dev
+    - libsqlite3-dev
+    - sqlite3
+    - vim
+    - libxml2-dev
+    - libxslt1-dev
+    - libcurl4-openssl-dev
+    - nfs-common
+    - xvfb
+    - htop
+    - checkinstall
+
+- name: Install aptitude
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
+
+- name: Install required system packages
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+    state: latest
+    update_cache: true

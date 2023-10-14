@@ -1,0 +1,7 @@
+service:
+  type: NodePort
+  nodePort: 30001
+persistence:
+  enabled: true
+  size: 1Gi
+  storageClassName: microk8s-hostpath

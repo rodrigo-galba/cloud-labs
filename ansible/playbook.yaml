@@ -1,0 +1,25 @@
+---
+- hosts: all
+
+  vars_files:
+    - secret
+
+  vars:
+    host_user: "{{ lookup('env','USER') }}"
+    microk8s_version: "1.28"
+    helm3_repositories:
+      - name: stable
+        url: https://charts.helm.sh/stable
+
+  tasks:
+    - name: make sure the system encoding is utf-8
+      template:
+        src: templates/locale
+        dest: /etc/default/locale
+        owner: root
+        group: root
+        mode: 0644
+
+    - include_tasks: tasks/apt.yml
+    - include_tasks: tasks/docker.yml
+    - include_tasks: tasks/microk8s.yml

@@ -1,0 +1,43 @@
+# https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/#helm-value-files-from-external-git-repository
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: thanos
+spec:
+  project: default
+  sources:
+  - repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 22.6.2
+    chart: prometheus
+    helm:
+      valueFiles:
+      - $values/argocd/prometheus/values.yaml
+      # parameters:
+      #   - name: alertmanager.enabled
+      #     value: 'false'
+      #   - name: kube-state-metrics.enabled
+      #     value: 'false'
+      #   - name: prometheus-node-exporter.enabled
+      #     value: 'false'
+      #   - name: prometheus-pushgateway.enabled
+      #     value: 'false'
+      #   - name: rbac.create
+      #     value: 'false'
+      #   - name: server.name
+      #     value: server
+      #   - name: server.service.type
+      #     value: NodePort
+      #   - name: server.sidecarContainers
+      #     value:
+      #       - name: thanos-sidecard
+      #         image: docker.io/bitnami/thanos:0.31.0-scratch-r5
+      #         args:
+      #         - sidecar
+      #         - --prometheus.url=http://localhost
+  - repoURL: 'https://github.com/rodrigo-galba/cloud-labs'
+    targetRevision: main
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: observability
+

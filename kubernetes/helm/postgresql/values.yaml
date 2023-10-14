@@ -1,0 +1,5 @@
+global:
+  storageClass: microk8s-hostpath
+
+image:
+  tag: 15.4.0

@@ -11,5 +11,5 @@ source:
   chart: minio
 destination:
   server: 'https://kubernetes.default.svc'
-  namespace: dev
+  namespace: default
 syncPolicy: {}

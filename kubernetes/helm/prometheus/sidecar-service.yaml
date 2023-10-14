@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: thanos-sidecar
+  name: thanos-sidecar
+  namespace: default
+spec:
+  clusterIP: None
+  ports:
+  - name: grpc
+    port: 10901
+    targetPort: grpc
+  selector:
+    app: prometheus-app
+
+# https://www.reddit.com/r/kubernetes/comments/11assgo/how_to_create_labels_for_sidecar_containers/
+#  How to create labels for sidecar containers? 
+# Individual containers in a pod don't have labels, whole pods do. To create a service that connects to a specific container in a pod, use an appropriate label selector for the entire pod and then specify a target port that the specific container is listening on.
