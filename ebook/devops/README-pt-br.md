@@ -178,10 +178,75 @@ Referências
 
 Referências
 - https://learn.microsoft.com/pt-br/azure/architecture/data-guide/azure-dataops-architecture-design
+- https://www.ibm.com/br-pt/dataops
 - https://en.wikipedia.org/wiki/DataOps
 - https://airbyte.com/data-engineering-resources/dataops-the-definitive-guide 
 
 ### MLOps
+
+Pipelines de entrega contínua e automação no aprendizado de máquina.
+
+> O MLOps é uma cultura e uma prática de engenharia de ML que visa unificar o desenvolvimento de sistemas de ML (Dev) e a operação de sistemas de ML (Ops). A prática de MLOps significa que você defende a automação e o monitoramento de todos os passos da construção do sistema de ML, inclusive integração, teste, lançamento, implantação e gerenciamento de infraestrutura. - Google
+
+## Porque adotar MLOps
+
+Conforme mostrado no diagrama a seguir, apenas uma pequena fração de um sistema de ML real é composta pelo código de ML. Os elementos envolventes necessários são grandes e complexos.
+
+![alt](./images/MLOps-Neal-Analytics.png)
+
+Neste diagrama, o restante do sistema é composto por configuração, automação, coleta de dados, verificação de dados, teste e depuração, gerenciamento de recursos, análise de modelos, gerenciamento de processos e metadados, infraestrutura de exibição e monitoramento.  
+
+![alt](./images/mlops.png)
+
+## DevOps x MLOps
+
+- O DevOps é uma prática comum no desenvolvimento e na operação de sistemas de software em larga escala.  
+- Um sistema de ML é um sistema de software. Portanto, práticas semelhantes se aplicam para garantir que você crie e opere sistemas de ML de maneira confiável em escala.  
+- O ML e outros sistemas de software são semelhantes na integração contínua de controle de origem, teste de unidade, teste de integração e entrega contínua do módulo de software ou do pacote.
+
+**Diferenças do ML**
+- A integração contínua CI não se trata mais de apenas testar e validar código e componentes, mas também testar e validar dados, esquemas de dados e modelos.
+- A entrega contínua CD não é mais sobre um único pacote de software ou serviço, mas um sistema (um pipeline de treinamento de ML) que deve implantar automaticamente outro serviço (serviço de predição de modelo).
+- Treinamento contínuo TC  é uma nova propriedade, exclusiva para sistemas de ML, que se preocupa em treinar e exibir automaticamente os modelos.
+
+![alt](./images/1-MLOps-NVIDIA-invert-final.jpg)
+
+## Maturidade de MLOps
+
+### Nivel 0 (processo manual)
+- **Processo manual, orientado por script e interativo**: Todos os passos são manuais, inclusive análise de dados, preparação de dados, treinamento de modelo e validação. 
+- **Desconexão entre ML e operações**: O processo separa cientistas de dados que criam o modelo e engenheiros que exibem o modelo como um serviço de previsão.
+- **Iterações de versão não frequentes**: O processo pressupõe que sua equipe de ciência de dados gerencia alguns modelos que não mudam com frequência. Uma nova versão de modelo é implantada apenas algumas vezes por ano.
+- **Sem CI**: Como algumas alterações de implementação no código do modelo são presumidas, o CI é ignorado.
+- **Sem CD**: como não há implantações de versão de modelo frequentes, o CD não é considerado.
+- **Falta de monitoramento de performance ativo**: o processo não rastreia nem registra as previsões e ações do modelo, que são necessárias para detectar a degradação do desempenho do modelo e outros desvios comportamentais do modelo.
+
+### Nivel 1 (utomação de pipeline de ML)
+- **Experimento rápido**: os passos do experimento de ML são orquestrados. A transição entre os passos é automatizada, o que leva a uma iteração rápida dos experimentos e à melhor preparação para mover todo o pipeline para a produção.
+- **TC do modelo em produção**: o modelo é treinado automaticamente na produção usando dados recentes com base em acionadores de pipeline ativos
+- **Simetria experimental-operacional**: a implementação do pipeline usada no ambiente de desenvolvimento ou experiência é usada no ambiente de pré-produção e produção.
+- **Código modularizado para componentes e pipelines**: para criar pipelines de ML, os componentes precisam ser reutilizáveis, compostos e potencialmente compartilháveis em pipelines de ML. 
+- **Entrega contínua de modelos**: um pipeline de ML em produção fornece continuamente serviços de previsão para novos modelos treinados com novos dados.
+- **Implantação do pipeline**: no nível 0, você implanta um modelo treinado como um serviço de previsão na produção. Para o nível 1, você implanta um pipeline de treinamento inteiro, que é executado de maneira automática e recorrente para veicular o modelo treinado como o serviço de previsão.
+
+### Nivel 2 (automação de pipeline de CI/CD)
+
+- automação de CI/CD de ML: Pipeline estruturado com os seguintes estagios: 
+  - Desenvolvimento e experimentação
+  - Criação do código-fonte e execução de vários testes
+  - Implantação dos artefatos produzidos pelo cenário de CI no ambiente de destino
+  - Execução automática do pipeline na produção com base em uma programação (agendamento)
+  - Entrega contínua do modelo
+  - Monitoramento: coleta de estatísticas sobre o desempenho do modelo
+
+> Resumindo, implementar o ML em um ambiente de produção não significa apenas implantar o modelo como uma API para previsão. Em vez disso, significa implantar um pipeline de ML que pode automatizar o treinamento e a implantação de novos modelos 
+
+Referências
+
+- https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=pt-br
+- https://blog.nvidia.com.br/2020/09/08/o-que-e-mlops/
+
+
 ### FinOps
 
 ## Engenharia de plataforma
