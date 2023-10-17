@@ -154,22 +154,32 @@ Referências
 
 > DataOps incorpora a metodologia Agil para reduzir o tempo de ciclo de desenvolvimento analítico em alinhamento com os objetivos de negócios. É o apelido para "Operações de Dados".
 
-> DataOps é um conjunto de práticas, processos e tecnologias que combina uma perspectiva integrada e orientada a processos sobre dados com automação e métodos de engenharia de software ágil para melhorar a qualidade, velocidade e colaboração e promover uma cultura de melhoria contínua na área de análise de dados. - Wikipedia
+> O DataOps é uma abordagem de ciclo de vida para análise de dados. Ele usa práticas ágeis para orquestrar ferramentas, código e infraestrutura para fornecer rapidamente dados de alta qualidade com segurança aprimorada. Quando você implementa e simplifica os processos do DataOps, sua empresa pode fornecer facilmente insights analíticos econômicos. O DataOps ajuda você a adotar técnicas de dados avançadas que podem descobrir insights e novas oportunidades. - Microsoft
 
-> DataOps não está vinculado a uma tecnologia, arquitetura, ferramenta, linguagem ou estrutura específica. As ferramentas que suportam DataOps promovem colaboração, orquestração, qualidade, segurança, acesso e facilidade de uso.
+![alt](./images/dataops.png)
 
 ## Benefícios
 
-- Avalia processos
-  - aprimorar processos com base em dados (ou criá-los) garante um resultado mais eficiente
-- Melhora colaboração
-  - mantém os times de departamentos distintos, atuando simultaneamente nas diferentes fases de um projeto.
--  Diminui probabilidade de erros
-  - o índice de falhas reduz porque o processo é gerenciado com mais precisão, graças a processos automatizados, governança de dados e melhoria contínua acerca das informações adquiridas.
+- Métrica "Time to market" otimizada
+  - Ao agilizar os fluxos de trabalho de dados e promover a colaboração, a DataOps capacita as equipes de dados a fornecer soluções de dados de qualidade em um ritmo mais rápido, reduzindo significativamente o tempo necessário para obter insights de dados brutos e ficar à frente no mercado competitivo de hoje.
+- Qualidade de dados melhorada
+  - o DataOps coloca uma forte ênfase na precisão, consistência e qualidade, garantindo que os dados sejam confiáveis, confiáveis e, em última análise, mais valiosos para as organizações que buscam tomar decisões baseadas em dados.
+- Eficiência de trabalho aumentada
+  -  otimiza os fluxos de trabalho de dados, identificando e eliminando desperdícios e gargalos.
+- Colaboração reforçada
+  - Ao unir profissionais de dados, equipes de desenvolvimento e equipes de operações sob uma estrutura única, o DataOps promove a colaboração e a comunicação, a quebra de silos e promove uma cultura de responsabilidade e responsabilidade compartilhada.
+- Robustês na governança de dados
+  -  DataOps prioriza a segurança, a conformidade e a adesão às políticas e práticas de governança de dados. Isso garante que as soluções de dados não apenas forneçam insights valiosos, mas também protejam informações confidenciais e cumpram os regulamentos do setor.
+
+## Ferramentas
+- Apache Nifi: O Apache NiFi fornece um sistema para processar e distribuir dados.
+- Azure Databricks:  Use o Azure Databricks para desbloquear insights de todos os seus dados e criar soluções de IA. Você também pode configurar rapidamente seu ambiente do Apache Spark, dimensionar automaticamente e colaborar em projetos compartilhados.
+- PowerBI: Unificar dados de várias fontes para criar dashboards e relatórios interativos e imersivos que fornecem insights acionáveis e impulsionam os resultados dos negócios.
 
 Referências
+- https://learn.microsoft.com/pt-br/azure/architecture/data-guide/azure-dataops-architecture-design
 - https://en.wikipedia.org/wiki/DataOps
-- 
+- https://airbyte.com/data-engineering-resources/dataops-the-definitive-guide 
 
 ### MLOps
 ### FinOps
