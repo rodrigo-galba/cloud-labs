@@ -151,6 +151,26 @@ Referências
 - https://aws.amazon.com/pt/blogs/aws-brasil/implementando-gitops-no-amazon-eks-com-fluxcd/
 
 ### DataOps
+
+> DataOps incorpora a metodologia Agil para reduzir o tempo de ciclo de desenvolvimento analítico em alinhamento com os objetivos de negócios. É o apelido para "Operações de Dados".
+
+> DataOps é um conjunto de práticas, processos e tecnologias que combina uma perspectiva integrada e orientada a processos sobre dados com automação e métodos de engenharia de software ágil para melhorar a qualidade, velocidade e colaboração e promover uma cultura de melhoria contínua na área de análise de dados. - Wikipedia
+
+> DataOps não está vinculado a uma tecnologia, arquitetura, ferramenta, linguagem ou estrutura específica. As ferramentas que suportam DataOps promovem colaboração, orquestração, qualidade, segurança, acesso e facilidade de uso.
+
+## Benefícios
+
+- Avalia processos
+  - aprimorar processos com base em dados (ou criá-los) garante um resultado mais eficiente
+- Melhora colaboração
+  - mantém os times de departamentos distintos, atuando simultaneamente nas diferentes fases de um projeto.
+-  Diminui probabilidade de erros
+  - o índice de falhas reduz porque o processo é gerenciado com mais precisão, graças a processos automatizados, governança de dados e melhoria contínua acerca das informações adquiridas.
+
+Referências
+- https://en.wikipedia.org/wiki/DataOps
+- 
+
 ### MLOps
 ### FinOps
 
