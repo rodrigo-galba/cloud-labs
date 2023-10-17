@@ -16,7 +16,7 @@ Linguagens suportadas: en-us, pt-br.
 ## DevOps aplicado
 
 **Contexto**  
-Os principios e práticas DevOps tem sido aplicados e adotados de forma ampla. Várias áreas que inicialmente trabalhavam de outra forma, foram se modaldno e até mesmo sendo criadas. Veremos como DevOps está sendo aplicados nessas áreas. 
+Os principios e práticas DevOps tem sido aplicados e adotados de forma ampla. Várias áreas que inicialmente trabalhavam de outra forma, foram se moldando e até mesmo sendo criadas. Veremos como DevOps está sendo aplicados nessas áreas. 
 
 ### SecOps
 
@@ -86,6 +86,7 @@ Referências
 - https://www.aquasec.com/cloud-native-academy/devsecops/devsecops-tools/
 - https://techcommunity.microsoft.com/t5/desenvolvedores-br/descubra-vulnerabilidades-e-automatize-a-atualiza%C3%A7%C3%A3o-de/ba-p/3335240
 
+--------------------
 
 ### GitOps 
 
@@ -150,6 +151,8 @@ Referências
 - https://blog.argoproj.io/5-gitops-best-practices-d95cb0cbe9ff
 - https://aws.amazon.com/pt/blogs/aws-brasil/implementando-gitops-no-amazon-eks-com-fluxcd/
 
+--------------------
+
 ### DataOps
 
 > DataOps incorpora a metodologia Agil para reduzir o tempo de ciclo de desenvolvimento analítico em alinhamento com os objetivos de negócios. É o apelido para "Operações de Dados".
@@ -181,6 +184,8 @@ Referências
 - https://www.ibm.com/br-pt/dataops
 - https://en.wikipedia.org/wiki/DataOps
 - https://airbyte.com/data-engineering-resources/dataops-the-definitive-guide 
+
+--------------------
 
 ### MLOps
 
@@ -246,7 +251,11 @@ Referências
 - https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=pt-br
 - https://blog.nvidia.com.br/2020/09/08/o-que-e-mlops/
 
+--------------------
 
 ### FinOps
+
+Referências
+
 
 ## Engenharia de plataforma
