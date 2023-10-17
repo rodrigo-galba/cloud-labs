@@ -26,7 +26,7 @@ O que é DevSecOps?
 
 > DevSecOps é a prática de integrar testes de segurança a todas as etapas do processo de desenvolvimento de software. Inclui ferramentas e processos que incentivam a colaboração entre desenvolvedores, especialistas em segurança e equipes de operação para criar software eficiente e seguro. O DevSecOps promove uma transformação cultural que torna a segurança uma responsabilidade compartilhada por todos que estão criando o software. - Amazon Web Services
 
-![DevSecOps image]()
+![DevSecOps](./images/Fig_1_DevOps_Evolution.original.png)
 
 > O termo nasceu a partir da ascensão da metodologia DevOps e consequentemente com o aumento da arquitetura de Software como serviço, onde o software desenvolvido é essencialmente hospedado em ambientes nuvem, com integração e entrega contínuas surgiu a necessidade do mercado de integrar processos de segurança dentro desse escopo de agilidade, além de tentar sobrepor as dificuldades no gerenciamento de software entre times de maneira confiável. - Wikipedia
 
@@ -43,10 +43,13 @@ O que é DevSecOps?
   - Tradicionalmente a equipe de segurança dentro do processo de desenvolvimento de software fica mais próxima do fim do ciclo de projeto
   - SecOps promove a integração desse time dentro do escopo de concepção e desenvolvimento, tanto com objetivo de mudar a mentalidade de todo processo como de incluir maturidade no que tange aspectos relacionados à segurança da informação. 
 
-## Praticas
+## Práticas
 - Automação de testes contínua
+  - Controles de segurança automatizados em todas as partes do desenvolvimento de software são fatores importantes para garantir entregas seguras e permitir que os testes detectem anomalias em diferentes fases do processo.
 - Monitoramento contínuo
+  - É importante gerar evidências dos controles de segurança automatizados ao longo do processo, para que estes possam gerar o melhor resultado possível é necessário o acompanhamento de ponta-a-ponta.
 - Segurança como código
+  - processo de definir políticas de segurança com o uso de modelos de script (templates) ou arquivos de configuração que podem ser ativados automaticamente de acordo com agendamentos ou manualmente pelo usuário.
 
 ## Benefícios
 - Proteção contínua
@@ -60,7 +63,6 @@ O que é DevSecOps?
 - Automações
 
 ## Ferramentas
-
 - Veracode
   - Veracode is an cloud-based security tool created to simplify developer security testing. It provides comprehensive visibility into your application’s security posture and offers remediation tips for any vulnerabilities it detects.
 - OWASP Zed Attack Proxy (ZAP)
@@ -79,6 +81,7 @@ O que é DevSecOps?
 
 Referências
 - https://pt.wikipedia.org/wiki/SecOps
+- https://insights.sei.cmu.edu/blog/a-framework-for-devsecops-evolution-and-achieving-continuous-integrationcontinuous-delivery-cicd-capabilities/
 - https://aws.amazon.com/pt/what-is/devsecops/
 - https://www.aquasec.com/cloud-native-academy/devsecops/devsecops-tools/
 - https://techcommunity.microsoft.com/t5/desenvolvedores-br/descubra-vulnerabilidades-e-automatize-a-atualiza%C3%A7%C3%A3o-de/ba-p/3335240
