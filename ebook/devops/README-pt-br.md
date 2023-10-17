@@ -116,20 +116,21 @@ Reconciliação ou Sincronização é o ato de modificar o estado do cluster par
 
 ## Ferramentas
 
-- ArgoCD
-  - Argo CD, é uma ferramenta declarativa que usa a abordagem GitOps para implantar aplicações no Kubernetes.
-  - Pode ser usado para gerenciar várias aplicações em diferentes clusters Kubernetes a partir de um único repositório.
-  - Ele pode se conectar a repositórios git públicos e privados
-  - é gratuito, tem o código fonte aberto, é um projeto incubado pela CNCF,
-  - Possui uma interface web de visualização e gerenciamento dos recursos,
-  - Também pode ser configurado via linha de comando.
-  - https://github.com/argoproj/argo-cd
-  - ArgoCon: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/argocon/#about
-- FluxCD
-  - https://fluxcd.io/
-  -  é uma ferramenta para manter clusters Kubernetes em sincronia com fontes de configuração (como repositórios Git) e automatizar atualizações de configuração quando há uma nova versão a ser implantada.
-  - A versão 2 desta ferramenta foi desenvolvida do zero para usar o sistema de extensão da API do Kubernetes e se integrar com restante do ecossistema do Kubernetes.
-  - Não possui interface web, somente linha de comando.
+### ArgoCD
+- Argo CD, é uma ferramenta declarativa que usa a abordagem GitOps para implantar aplicações no Kubernetes.
+- Pode ser usado para gerenciar várias aplicações em diferentes clusters Kubernetes a partir de um único repositório.
+- Ele pode se conectar a repositórios git públicos e privados
+- é gratuito, tem o código fonte aberto, é um projeto incubado pela CNCF,
+- Possui uma interface web de visualização e gerenciamento dos recursos,
+- Também pode ser configurado via linha de comando.
+- https://github.com/argoproj/argo-cd
+- ArgoCon: https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/argocon/#about
+
+### FluxCD
+- https://fluxcd.io/
+-  é uma ferramenta para manter clusters Kubernetes em sincronia com fontes de configuração (como repositórios Git) e automatizar atualizações de configuração quando há uma nova versão a ser implantada.
+- A versão 2 desta ferramenta foi desenvolvida do zero para usar o sistema de extensão da API do Kubernetes e se integrar com restante do ecossistema do Kubernetes.
+- Não possui interface web, somente linha de comando.
 
 
 ## GitOps Best practices
