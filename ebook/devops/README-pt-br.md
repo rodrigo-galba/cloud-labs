@@ -255,7 +255,62 @@ Referências
 
 ### FinOps
 
-Referências
+> O FinOps é uma disciplina que combina princípios de gerenciamento financeiro com engenharia de nuvem e operações para fornecer às organizações uma melhor compreensão de seus gastos com a nuvem. - Microsoft
 
+- Ele também os ajuda a tomar decisões informadas sobre como alocar e gerenciar seus custos de nuvem.  
+- A meta do FinOps não é economizar dinheiro, mas maximizar a receita ou o valor comercial por meio da nuvem.  - Isso ajuda a permitir que as organizações controlem os gastos na nuvem, mantendo o nível de desempenho, confiabilidade e segurança necessários para dar suporte às operações de negócios. 
+
+> A adoção rápida da infraestrutura de cloud tem sido um desafio para os modelos de consumo e ciclos de comprar tradicionais. O FinOps oferece um controle centralizado para o departamento de compras por meio de uma equipe dedicada de FinOps que transmite as melhores práticas aos stakeholders a fim de otimizar os custos de cloud. Cria uma linguagem comum que permite às organizações operar em escala na nuvem de forma eficiente - IBM
+
+> Estimar, rastrear e prever automaticamente o custo de execução da infraestrutura de nuvem é crucial para as organizações de hoje. Os modelos de preços inteligentes dos provedores de nuvem, combinados com a proliferação de parâmetros de preços e a natureza dinâmica da arquitetura atual, podem levar a custos de execução surpreendentemente altos. Embora essa técnica esteja em adoção desde 2019, queremos destacar a importância de considerar o custo de execução como função de aptidão arquitetural, especialmente hoje, devido à adoção acelerada da nuvem e à crescente atenção às práticas de FinOps. - Tech Radar Thoughtworks
+## Framework do FinOps
+
+A Estrutura do FinOps da FinOps Foundation é um conjunto abrangente de práticas recomendadas e princípios.
+
+![alt](./images/finops-framework.png)
+
+## Fundação FinOps
+
+> https://www.finops.org/
+
+O FinOps é uma disciplina e uma prática cultural, mas também se refere à Fundação FinOps, uma organização comercial sem fins lucrativos, que faz parte da Linux Foundation, com membros de empresas e outras organizações que promovem a disciplina de FinOps.  
+
+Existem certificações respaldadas pela FinOps Foundation na área de FinOps. São elas:
+- FinOps Certified Practitioner
+- FinOps Certified Engineer
+- FinOps Certified Professional
+
+## Serviços FinOps
+
+A fundação FinOps criou e mantem um compilado com serviços e ferramentas, chamado FinOps landscape, a fim de centralizar soluções de mercado que suportem a adoção de FinOps nas empresas.
+
+https://www.finops.org/landscape/
+
+A seguir, uma lista reduzida 
+
+- [CleanCloud](https://cleancloud.io/)
+- [KubeCost](https://www.kubecost.com/)
+- [InfraCost](https://www.infracost.io/)
+- [OpenCost](https://www.opencost.io/)
+- [CloudZero](https://www.cloudzero.com/blog/finops-tools)
+- [ProsperOps](https://www.prosperops.com/)
+- [Harness](https://www.harness.io/)
+
+### Principios do FinOps
+
+- **As equipes precisam colaborar**: crie um foco comum na eficiência de custos, processos e decisões de custo entre equipes que normalmente não funcionam em conjunto.
+- **Todos assumem a propriedade**: descentralizar decisões sobre uso e otimização de recursos de nuvem e orientar as equipes técnicas a considerar o custo, bem como o tempo de atividade e o desempenho.
+- **Uma equipe centralizada impulsiona o FinOps**: centralize o gerenciamento das práticas do FinOps para consistência, automação e negociações de taxa.
+- **Os Relatórios do FinOps devem ser acessíveis e oportunos**: forneça dados de uso e custo claros rapidamente, para as pessoas certas, para habilitar decisões de prompt e previsão.
+- **As decisões são orientadas pelo valor comercial da nuvem**: equilibre as decisões de custo com benefícios comerciais, incluindo qualidade, velocidade e capacidade de negócios.
+- **Aproveite o modelo de custo variável da nuvem**: faça pequenos ajustes contínuos no uso e na otimização da nuvem.
+
+-----------------------------------
+Referências
+- https://learn.microsoft.com/pt-br/azure/cost-management-billing/finops/overview-finops
+- https://cloud.google.com/learn/what-is-finops?hl=pt-br
+- https://www.finops.org/
+- https://learn.finops.org/
+- https://www.thoughtworks.com/pt-br/radar/techniques/run-cost-as-architecture-fitness-function
 
 ## Engenharia de plataforma
