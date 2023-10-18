@@ -314,3 +314,31 @@ Referências
 - https://www.thoughtworks.com/pt-br/radar/techniques/run-cost-as-architecture-fitness-function
 
 ## Engenharia de plataforma
+
+> A engenharia de plataforma é uma abordagem de tecnologia emergente que pode acelerar a entrega de aplicativos e o ritmo em que produzem valor comercial. - Gartner
+
+> A engenharia de plataforma é uma tendência emergente destinada a modernizar a entrega de software empresarial, particularmente para a transformação digital. A plataforma de engenharia é criada e mantida por uma equipe de produtos dedicada, projetada para suportar as necessidades dos desenvolvedores de software e outros, fornecendo ferramentas e capacidades comuns e reutilizáveis, além de interface para infraestrutura complexa. - Gartner
+
+## Engenharia de plataforma x DevOps
+
+> A principal diferença entre engenharia de plataforma vs. O DevOps é simples. Embora o DevOps seja uma abordagem de desenvolvimento que ajuda desenvolvedores e equipes de operações de TI a trabalharem juntas, a engenharia de plataforma é um processo separado usado para criar uma única plataforma central para ferramentas de DevOps. - Puppet.com
+
+- O DevOps é uma mentalidade conceitual para definir as formas como o desenvolvimento e as operações colaboram.
+- A engenharia de plataforma é a criação de uma plataforma centralizada com conjuntos definidos de ferramentas e fluxos de trabalho.  
+- A engenharia da plataforma é frequentemente implementada depois que uma iniciativa de DevOps já foi implementada. Por essa razão, a engenharia de plataforma às vezes tem sido chamada de substituta do DevOps, mas isso não é bem certo.  
+
+![alt](./images/platform-engineering.jpg)
+
+## Beneficios
+
+> Como o DevOps, o sucesso da engenharia da plataforma pode ser difícil de medir. Mas a pesquisa mais recente mostra uma correlação entre a adoção da plataforma e o sucesso do DevOps. De fato, 94% dos entrevistados da pesquisa 2023 State of Platform Engineering concordam que o conceito está ajudando suas organizações a perceber melhor os benefícios do DevOps. - Puppet
+
+![alt](./images/plat-devops-puppet-report-2023.png)
+
+> Esses benefícios variam de melhorias na confiabilidade do sistema (60%) a maior produtividade / eficiência (59%) e melhores padrões de fluxo de trabalho (57%). E vai além de facilitar a vida dos desenvolvedores: 30% dos entrevistados afirmaram que a engenharia da plataforma melhor atende às necessidades de toda a empresa – não apenas um único departamento.
+
+-----------------------------------
+Referências
+
+- https://platformengineering.org/blog/what-is-platform-engineering
+- https://www.gartner.com/en/articles/what-is-platform-engineering
