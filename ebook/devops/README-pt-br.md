@@ -337,8 +337,39 @@ Referências
 
 > Esses benefícios variam de melhorias na confiabilidade do sistema (60%) a maior produtividade / eficiência (59%) e melhores padrões de fluxo de trabalho (57%). E vai além de facilitar a vida dos desenvolvedores: 30% dos entrevistados afirmaram que a engenharia da plataforma melhor atende às necessidades de toda a empresa – não apenas um único departamento.
 
+## Plataforma Interna para desenvolvedores
+
+> Uma plataforma interna de desenvolvedores (IDP) é construída por uma equipe de plataforma para criar caminhos dourados e permitir o autoatendimento do desenvolvedor. - IDP.org
+
+- Um IDP consiste em muitas tecnologias e ferramentas diferentes, coladas de uma forma que reduz a carga cognitiva sobre os desenvolvedores sem abstrair o contexto e as tecnologias subjacentes.
+- Seguindo as melhores práticas, as equipes da plataforma tratam sua plataforma como um produto e a constroem com base na pesquisa do usuário, mantêm e melhoram continuamente.
+- Plataformas Internas de Desenvolvedores (IDPs) são configurados pelas equipes do Ops e usados pelos desenvolvedores.
+
+**Porque é chamado de Plataforma interna de desenvolvedores?**
+
+- Interno: claramente separado de plataformas de acesso externo, IDPs são projetados para uso interno em grandes organizações
+- Desenvolvedor: Indica que o cliente interno e usuário primário é o desenvolvedor de aplicações
+- Plataforma: caracteriza o tipo de produto.
+
+## Serviços e ferramentas
+
+Existem plataformas prontas que tanto servem como base para criação de IDPs, como PaaS que podem ser usados com minima intervenção estrutural.
+
+- [Backstage.io](https://backstage.io/)
+- [Ports](https://platformengineering.org/tools/port)
+- [OpsLevel](https://www.opslevel.com/)
+- [Humanitec](https://humanitec.com/)
+
+## Avaliação de mercado
+
+- Backstage top 3 CNCF project for 2022.
+- https://www.cncf.io/blog/2023/01/11/a-look-at-the-2022-velocity-of-cncf-linux-foundation-and-top-30-open-source-projects/
+- https://landscape.cncf.io/?selected=backstage
+
 -----------------------------------
 Referências
 
 - https://platformengineering.org/blog/what-is-platform-engineering
 - https://www.gartner.com/en/articles/what-is-platform-engineering
+- https://internaldeveloperplatform.org/what-is-an-internal-developer-platform/
+- https://www.redhat.com/en/topics/devops/what-is-an-internal-developer-platform
