@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Git crypt settings
+*.tfvar* filter=git-crypt diff=git-crypt
+*.key filter=git-crypt diff=git-crypt
+env/** filter=git-crypt diff=git-crypt
+.env.* filter=git-crypt diff=git-crypt

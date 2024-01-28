@@ -355,3 +355,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 rust/hello_world/Cargo.lock
+
+# Git-crypt file
+GPG_KEY_FILE
