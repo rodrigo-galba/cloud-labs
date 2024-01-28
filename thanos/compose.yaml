@@ -227,7 +227,7 @@ services:
       - thanos
 
   node-exporter:
-    image: prom/node-exporter:v0.18.1
+    image: prom/node-exporter
     container_name: node-exporter
     volumes:
       - /proc:/host/proc:ro
@@ -323,9 +323,9 @@ services:
   grafana:
     image: grafana/grafana:6.5.2
     container_name: grafana
-    #volumes:
-    #  - grafana_data:/var/lib/grafana
-    #  - ./grafana/provisioning:/etc/grafana/provisioning
+    volumes:
+     - grafana_data:/var/lib/grafana
+     - ./grafana/provisioning:/etc/grafana/provisioning
     environment:
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
@@ -347,3 +347,4 @@ volumes:
   store: {}
   receive: {}
   compact: {}
+  grafana_data: {}

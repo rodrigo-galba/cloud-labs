@@ -10,6 +10,11 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus
       - prom_data:/prometheus
+    links:
+     - node-exporter:node-exporter     
+     - cloudwatch-exporter:cloudwatch-exporter
+     - cadvisor:cadvisor
+
   node-exporter:
     image: prom/node-exporter
     container_name: node-exporter
@@ -22,6 +27,7 @@ services:
       - '--path.rootfs=/rootfs'
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'      
+
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -33,6 +39,18 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=grafana
     volumes:
       - ./grafana:/etc/grafana/provisioning/datasources
+
+  cloudwatch-exporter:
+    image: quay.io/prometheus/cloudwatch-exporter:v0.15.5
+    container_name: cloudwatch-exporter
+    ports:
+      - 9106:9106
+    restart: unless-stopped
+    volumes:
+      - ./prometheus/cw-config.yml:/config/config.yml
+      - /c/Users/user/.aws/credentials:/root/.aws/credentials
+      - prom_data:/prometheus
+
   minio:
     image: quay.io/minio/minio
     container_name: minio
@@ -53,7 +71,20 @@ services:
       timeout: 20s
       retries: 3
 
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: monitoring_cadvisor
+    restart: unless-stopped
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    expose:
+      - 8080
+
 volumes:
   prom_data: {}
+  cloudwath_data: {}
   minio-data:
     driver: local
