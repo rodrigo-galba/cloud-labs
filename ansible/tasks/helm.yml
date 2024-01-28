@@ -1,0 +1,17 @@
+---
+- name: add helm repositories
+  become: yes
+  command: "microk8s.helm repo add {{ item.name }} {{ item.url }}"
+  changed_when: true
+  loop:
+    - { name: 'bitnami', url: 'https://charts.bitnami.com/bitnami' }
+    - { name: 'grafana', url: 'https://grafana.github.io/helm-charts' }
+    - { name: 'prometheus-community', url: 'https://prometheus-community.github.io/helm-charts' }
+    - { name: 'backstage', url: 'https://backstage.github.io/charts' }
+
+# - name: Install Harbor via helm
+#   become: yes
+#   shell: "microk8s.helm install harbor bitnami/harbor"
+#   args:
+#     executable: /bin/bash
+#   changed_when: true
