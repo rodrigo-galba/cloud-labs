@@ -1,0 +1,40 @@
+alertmanager:
+
+  ## Deploy alertmanager
+  ##
+  enabled: true
+
+  config:
+    global:
+      resolve_timeout: 5m
+      slack_api_url: 'https://hooks.slack.com/services/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'
+
+    inhibit_rules:
+    - equal:
+      - namespace
+      - alertname
+      source_matchers:
+      - severity = critical
+      target_matchers:
+      - severity =~ warning|info
+    - equal:
+      - namespace
+      - alertname
+      source_matchers:
+      - severity = warning
+      target_matchers:
+      - severity = info
+    - equal:
+      - namespace
+      source_matchers:
+      - alertname = InfoInhibitor
+      target_matchers:
+      - severity = info
+    receivers:
+    - name: "null"
+    - name: 'slack-notifications'
+    slack_configs:
+    - channel: '#alerts'
+    send_resolved: true
+    route:
+      receiver: 'slack-notifications'
