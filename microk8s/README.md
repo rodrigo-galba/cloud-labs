@@ -39,15 +39,15 @@ microk8s enable observability
 ```
 sudo vim /etc/docker/daemon.json
 {
-  "insecure-registries" : ["192.168.50.130:32000"]
+  "insecure-registries" : ["localhost:32000"]
 }
 sudo systemctl restart docker
 ```
 
 ```
-sudo docker pull nginx
-sudo docker tag nginx localhost:32000/nginx
-sudo docker push localhost:32000/nginx
+docker pull nginx
+docker tag nginx localhost:32000/nginx
+docker push localhost:32000/nginx
 kubectl apply -f deployment-nginx.yml
 ```
 

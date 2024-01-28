@@ -1,0 +1,21 @@
+---
+- name: Enable addons
+  become: yes
+  command: microk8s enable rbac dns metrics-server hostpath-storage registry
+  changed_when: false
+  register: mk8sstatusout
+  failed_when:
+      - "'This MicroK8s addons failed.' not in mk8sstatusout.stdout_lines"
+      - mk8sstatusout.rc > 0
+
+- name: configure private registry
+  copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "insecure-registries" : ["localhost:32000"]
+      }
+
+- name: Restart docker
+  become: yes
+  command: systemctl restart docker
