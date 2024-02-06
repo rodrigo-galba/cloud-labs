@@ -20,6 +20,8 @@
         group: root
         mode: 0644
 
-    - include_tasks: tasks/apt.yml
-    - include_tasks: tasks/docker.yml
-    - include_tasks: tasks/microk8s.yml
+    # - include_tasks: tasks/apt.yml
+    # - include_tasks: tasks/docker.yml
+    # - include_tasks: tasks/microk8s.yml
+    - include_tasks: tasks/master.yml
+    # - include_tasks: tasks/helm.yml

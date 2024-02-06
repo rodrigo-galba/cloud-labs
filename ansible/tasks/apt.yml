@@ -7,7 +7,7 @@
   apt: pkg={{ item }} state=latest
   become: yes
   with_items:
-    - git-core
+    - git
     - curl
     - zlib1g-dev
     - build-essential

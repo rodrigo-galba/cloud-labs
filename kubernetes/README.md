@@ -55,6 +55,13 @@ where:
 - bash: Overrides the container's CMD. In this case, we want to launch bash as our container's command.
 
 
+## DNS troubleshoot
+
+Restart coreDNS
+```
+kubectl -n kube-system rollout restart deployment coredns
+```
 
 #### References
 - https://www.youtube.com/watch?v=qWEzbfb9qgQ
+- https://stackoverflow.com/questions/45805483/kubernetes-pods-cant-resolve-hostnames

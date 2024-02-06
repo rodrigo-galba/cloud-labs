@@ -12,7 +12,23 @@ Windows
 ## Creating a cluster
 
 ```
-kind create cluster
+$ kind create cluster
+rogal@hp-z8:~/cloud-labs/kind$ kind create cluster
+Creating cluster "kind" ...
+ ✓ Ensuring node image (kindest/node:v1.27.3) 🖼 
+ ✓ Preparing nodes 📦  
+ ✓ Writing configuration 📜 
+ ✓ Starting control-plane 🕹️ 
+ ✓ Installing CNI 🔌 
+ ✓ Installing StorageClass 💾 
+Set kubectl context to "kind-kind"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kind
+
+Have a nice day! 👋
+```
+```
 kubectl cluster-info --context kind-kind
 kubectl get po --all-namespaces
 ```
@@ -20,7 +36,7 @@ kubectl get po --all-namespaces
 ## Get cluster config
 
 ```
-kubectl config view --raw
+kubectl config view --raw > kind-config
 ```
 
 

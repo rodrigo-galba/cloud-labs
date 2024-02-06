@@ -36,3 +36,13 @@ ansible --version
 ```
 
 2 - Observability cluster using a Server-based with Ansible
+
+### Docker metrics with Prometheus
+
+- https://docs.docker.com/config/daemon/prometheus/
+
+## Grafana dashboards
+
+
+- [Docker metrics](https://grafana.com/grafana/dashboards/893-main/)
+- [CAdvisor](https://grafana.com/grafana/dashboards/10619-docker-host-container-overview/)

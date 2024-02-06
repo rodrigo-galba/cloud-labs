@@ -12,8 +12,27 @@
   apt:
     name: docker-ce
     state: latest
-    update_cache: true
+    update_cache: true    
 
 # - name: Install Docker Module for Python
 #   pip:
 #     name: docker
+
+# sudo groupadd docker
+# sudo usermod -aG docker $USER
+# newgrp docker
+# docker run hello-world
+
+# ```
+# sudo mkdir -p /var/snap/microk8s/current/args/certs.d/10.141.241.175:32000
+# sudo touch /var/snap/microk8s/current/args/certs.d/10.141.241.175:32000/hosts.toml
+# ```
+
+
+# ```
+# # /var/snap/microk8s/current/args/certs.d/10.141.241.175:32000/hosts.toml
+# server = "http://10.141.241.175:32000"
+
+# [host."http://10.141.241.175:32000"]
+# capabilities = ["pull", "resolve"]
+# ```

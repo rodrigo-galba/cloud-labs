@@ -1,0 +1,90 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prom_data:/prometheus
+    links:
+     - node-exporter:node-exporter     
+     - cloudwatch-exporter:cloudwatch-exporter
+     - cadvisor:cadvisor
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'      
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources
+
+  cloudwatch-exporter:
+    image: quay.io/prometheus/cloudwatch-exporter:v0.15.5
+    container_name: cloudwatch-exporter
+    ports:
+      - 9106:9106
+    restart: unless-stopped
+    volumes:
+      - ./prometheus/cw-config.yml:/config/config.yml
+      - /c/Users/user/.aws/credentials:/root/.aws/credentials
+      - prom_data:/prometheus
+
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    hostname: minio
+    volumes:
+      - minio-data:/data
+    ports:
+      - "9000:9000"
+      - "9091:9091"
+    environment:
+      MINIO_ROOT_USER: EXAMPLEKEY
+      MINIO_ROOT_PASSWORD: EXAMPLESECRET
+      MINIO_VOLUMES: "/data"
+    command: server --console-address ":9091"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: monitoring_cadvisor
+    restart: unless-stopped
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    expose:
+      - 8080
+
+volumes:
+  prom_data: {}
+  cloudwath_data: {}
+  minio-data:
+    driver: local
