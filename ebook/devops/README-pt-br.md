@@ -258,6 +258,13 @@ Referências
 
 ### FinOps
 
+> A palavra FinOps é uma mistura de Finança e DevOps e, às vezes, é conhecida como gerenciamento de custos de nuvem ou gerenciamento financeiro em nuvem.  
+
+> O FinOps é uma disciplina que combina princípios de gerenciamento financeiro com engenharia de nuvem e operações para fornecer às organizações uma melhor compreensão de seus gastos com a nuvem. - Microsoft
+
+> Ele também os ajuda a tomar decisões informadas sobre como alocar e gerenciar seus custos de nuvem.
+
+> A meta do FinOps não é economizar dinheiro, mas maximizar a receita ou o valor comercial por meio da nuvem. Isso ajuda a permitir que as organizações controlem os gastos na nuvem, mantendo o nível de desempenho, confiabilidade e segurança necessários para dar suporte às operações de negócios.
 > O FinOps é uma disciplina que combina princípios de gerenciamento financeiro com engenharia de nuvem e operações para fornecer às organizações uma melhor compreensão de seus gastos com a nuvem. - Microsoft
 
 - Ele também os ajuda a tomar decisões informadas sobre como alocar e gerenciar seus custos de nuvem.  
