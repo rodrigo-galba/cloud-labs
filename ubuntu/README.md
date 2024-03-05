@@ -1,5 +1,12 @@
 # Ubuntu 
 
+## Utils
+
+lsb_release command not found
+```
+apt-get install -y lsb-release && apt-get clean all
+```
+
 ## Python setup
 
 ```

@@ -249,5 +249,23 @@ NAME                 STATUS   ROLES           AGE     VERSION
 kind-control-plane   Ready    control-plane   9m41s   v1.28.2
 ```
 
+## Taint & Tolerations
+
+```
+$ kubectl describe no | grep Taints
+Taints:             node-role.kubernetes.io/control-plane:NoSchedule
+Taints:             <none>
+Taints:             <none>
+```
+
+Apply a taint:
+```
+kubectl taint no kind-worker dedicated=special-user:NoSchedule
+# Key: dedicated
+# Value: special-user
+# Effect: NoSchedule
+```
+
+
 references
 - https://kind.sigs.k8s.io/
