@@ -100,3 +100,10 @@ Replace <pvc-name> with the name of the PVC you want to delete.
 Please note that deleting a PVC will also delete the associated Persistent Volume (PV) if the Reclaim Policy of the PV is set to Delete. If the Reclaim Policy is set to Retain, the PV will not be deleted, but it will become available for other PVCs to claim.
 
 Also, be aware that deleting a PVC will permanently delete all data stored on the associated PV, so make sure to backup any important data before deleting a PVC.
+
+## How to create statefulsets in the imperative way?
+
+Creating StatefulSets in an imperative way with kubectl is not directly supported like it is for some other resources (like Pods, Deployments, etc.). The reason is that StatefulSets often require a more complex configuration, including a Pod template, service name, and potentially persistent volume claims, which are difficult to specify with a single command.
+
+However, you can create a StatefulSet from a YAML file in an imperative way using the kubectl apply -f or kubectl create -f command.
+
