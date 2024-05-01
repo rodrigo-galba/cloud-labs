@@ -47,3 +47,11 @@ cd /cloud-labs/python/rw-logs
 tail -f /logs/app.log
 ```
 Este comando exibirá as últimas linhas do arquivo de log e atualizará a saída sempre que novas linhas forem adicionadas ao arquivo.
+
+## Referencia
+
+### Como dois scripts podem gerar logs no mesmo arquivo em paralelo?
+Dois scripts podem gerar logs no mesmo arquivo em paralelo usando a biblioteca logging do Python, que é segura para threads. No entanto, se os scripts estiverem em processos separados, você pode encontrar problemas de concorrência ao escrever no arquivo de log.
+
+Para resolver isso, você pode usar um logging.handlers.QueueHandler em combinação com um logging.handlers.QueueListener. Isso permite que vários processos gerem logs para a mesma fila, e um único processo consuma a fila e escreva os logs no arquivo.
+
