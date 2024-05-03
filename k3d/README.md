@@ -46,12 +46,29 @@ To create a Kubernetes cluster with 2 agents using K3d, follow these steps:
 2. Run the following command to create a new cluster named "my-cluster" with 2 agents:
 
     ```shell
-    k3d cluster create my-cluster --agents 1 -p "8000:80@loadbalancer"
+    sudo k3d cluster create my-cluster --agents 1 -p "8000:80@loadbalancer"
     ```
-
+<!-- k3d cluster create my-cluster --k3s-server-arg '--datastore-endpoint=http://<ip>:<port>' --agents 2
+     -->
    This will create a new Kubernetes cluster with 2 agents using K3d.
 
 3. Verify the cluster creation by running `kubectl get nodes` in your terminal. You should see the nodes of your newly created cluster.
+
+
+## Deleting a Cluster
+
+To delete a Kubernetes cluster created with K3d, follow these steps:
+
+1. Open your terminal.
+2. Run the following command to delete the cluster named "my-cluster":
+
+    ```shell
+    k3d cluster delete my-cluster
+    ```
+
+   This will delete the Kubernetes cluster created with K3d.
+
+3. Verify the cluster deletion by running `kubectl get nodes` in your terminal. The cluster nodes should no longer be listed.
 
 ## Updating K3d
 
