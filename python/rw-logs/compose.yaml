@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - LOG_DIR=/logs
+    volumes:
+      - ./logs:/logs
